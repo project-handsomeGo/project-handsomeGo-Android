@@ -7,6 +7,8 @@ import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.ImageView
+import com.hyeong.handsomego.home.HomeTabFragment
+import com.hyeong.handsomego.my_page.MypageTabFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 
