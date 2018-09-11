@@ -76,29 +76,128 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#ffffff"
-            android:layout_marginBottom="6dp"
-            android:padding="19dp">
-            <TextView
-                android:id="@+id/detail_tag_tv"
-                android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:id="@+id/detail_explain_relative"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="4dp"
-                android:layout_marginBottom="7dp"
-                android:background="@drawable/orange_round_square"
-                android:textSize="12sp"
-                android:textColor="#ffffff"
-                android:text="역사문화"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/detail_tag_tv"
-                android:textSize="13sp"
-                android:textColor="#000000"
-                android:text="덕수궁 돌담길은 어쩌구 저저구 어떤 내용으로
+                android:background="#ffffff"
+                android:layout_marginBottom="6dp"
+                android:padding="19dp">
+                <TextView
+                    android:id="@+id/detail_tag_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp"
+                    android:layout_marginBottom="7dp"
+                    android:background="@drawable/orange_round_square"
+                    android:textSize="12sp"
+                    android:textColor="#ffffff"
+                    android:text="역사문화"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/detail_tag_tv"
+                    android:textSize="13sp"
+                    android:textColor="#000000"
+                    android:text="덕수궁 돌담길은 어쩌구 저저구 어떤 내용으로
 이렇게 뭔가가 설명되어 있고
 그에 대한 내용이 적혀있을 것이다. "/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/detail_rate_relative"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                android:background="#ffffff"
+                android:layout_marginBottom="6dp"
+                android:layout_below="@+id/detail_explain_relative">
+                <TextView
+                    android:id="@+id/detail_rate_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="9dp"
+                    android:textAlignment="center"
+                    android:textSize="14sp"
+                    android:textColor="#000000"
+                    android:text="최다예님 평가해주세요."/>
+                <RatingBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/detail_rate_tv"
+                    android:layout_centerHorizontal="true"
+                    android:isIndicator="true"
+                    android:numStars="5"
+                    android:rating="4"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/detail_avg_relative"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="3dp"
+                android:paddingLeft="26dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:layout_below="@+id/detail_rate_relative"
+                android:background="#ffffff"
+                >
+                <TextView
+                    android:id="@+id/detail_avg_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:textSize="27sp"
+                    android:textColor="#9b9b9b"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="11dp"
+                    android:text="4.3"/>
+                <RatingBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/detail_avg_tv"
+                    android:layout_centerHorizontal="true"
+                    android:isIndicator="true"
+                    android:numStars="5"
+                    android:rating="4.3"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/detail_reviews_relative"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ffffff"
+                android:layout_marginBottom="3dp"
+                android:layout_below="@+id/detail_avg_relative">
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/detail_reviews_recycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                </android.support.v7.widget.RecyclerView>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ffffff"
+                android:padding="14dp"
+                android:layout_below="@+id/detail_reviews_relative">
+                <ImageView
+                    android:id="@+id/detail_more_iv"
+                    android:layout_width="19dp"
+                    android:layout_height="19dp"
+                    android:src="@drawable/more_right"
+                    android:layout_alignParentRight="true"/>
+                <TextView
+                    android:id="@+id/detail_more_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@+id/detail_more_iv"
+                    android:layout_centerVertical="true"
+                    android:textAlignment="center"
+                    android:textSize="12sp"
+                    android:textColor="#797979"
+                    android:layout_marginRight="5dp"
+                    android:text="리뷰 더보기"/>
+            </RelativeLayout>
         </RelativeLayout>
     </android.support.v4.widget.NestedScrollView>
 </android.support.design.widget.CoordinatorLayout>
