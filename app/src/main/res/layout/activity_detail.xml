@@ -158,6 +158,10 @@
                     android:layout_toRightOf="@+id/detail_avg_tv"
                     android:layout_centerHorizontal="true"
                     android:isIndicator="true"
+                    android:scaleY="0.8"
+                    android:scaleX="0.8"
+                    android:transformPivotX="0dp"
+                    android:transformPivotY="35dp"
                     android:numStars="5"
                     android:rating="4.3"/>
             </RelativeLayout>
