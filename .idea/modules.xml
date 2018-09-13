@@ -4,7 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/HandSomeGo.iml" filepath="$PROJECT_DIR$/HandSomeGo.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/project-handsomeGo-Android.iml" filepath="$PROJECT_DIR$/project-handsomeGo-Android.iml" />
     </modules>
   </component>

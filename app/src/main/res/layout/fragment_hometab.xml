@@ -5,10 +5,4 @@
     android:layout_height="match_parent"
     android:id="@+id/mapContainer">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="여기는 메인입니다."
-        android:gravity="center"/>
-
 </RelativeLayout>
