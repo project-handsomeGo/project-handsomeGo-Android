@@ -3,7 +3,8 @@ package com.hyeong.handsomego
 import android.content.Intent
 import android.os.Bundle
 import android.provider.MediaStore
-import android.support.v4.app.Fragment
+import android.app.Fragment
+import android.support.v4.app.FragmentManager
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.ImageView
@@ -51,7 +52,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     //Fragment 붙이는 함수
-    fun addFragment(fragment: Fragment) : Unit{
+    fun addFragment(fragment: android.support.v4.app.Fragment) : Unit{
         val fm = supportFragmentManager
         val transaction = fm.beginTransaction()
         transaction.add(R.id.main_frame,fragment)
@@ -59,7 +60,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     //Fragment 교체
-    fun replaceFragment(fragment: Fragment) : Unit{
+    fun replaceFragment(fragment: android.support.v4.app.Fragment) : Unit{
         val fm = supportFragmentManager
         val transaction = fm.beginTransaction()
         transaction.replace(R.id.main_frame,fragment)
