@@ -29,106 +29,118 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/reviewing_title_relative">
-
-        <RelativeLayout
-            android:id="@+id/reviewing_rate_relative"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="15dp"
-            android:background="#ffffff"
-            android:layout_marginBottom="6dp"
-            android:layout_below="@+id/reviewing_title_relative">
-            <TextView
-                android:id="@+id/reviewing_rate_tv"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <RelativeLayout
+                android:id="@+id/reviewing_rate_relative"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="9dp"
-                android:textAlignment="center"
-                android:textSize="14sp"
-                android:textColor="#303030"
-                android:text="최다예님 평가해주세요."/>
-            <RatingBar
-                android:id="@+id/reviewing_rate_rating"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/reviewing_rate_tv"
-                android:layout_centerHorizontal="true"
-                android:isIndicator="true"
-                android:numStars="5"
-                android:rating="4"/>
-        </RelativeLayout>
-        <RelativeLayout
-            android:id="@+id/reviewing_upload_relative"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingBottom="15dp"
-            android:paddingLeft="22dp"
-            android:paddingTop="15dp"
-            android:paddingRight="22dp"
-            android:layout_below="@+id/reviewing_rate_relative"
-            android:layout_marginBottom="6dp"
-            android:background="#ffffff">
-            <TextView
-                android:id="@+id/reviewing_upload_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="13sp"
-                android:textStyle="bold"
-                android:textColor="#444444"
-                android:text="사진 업로드(최대 4개)"
-                android:layout_marginBottom="11dp" />
-            <LinearLayout
+                android:padding="15dp"
+                android:background="#ffffff"
+                android:layout_marginBottom="6dp"
+                android:layout_below="@+id/reviewing_title_relative">
+                <TextView
+                    android:id="@+id/reviewing_rate_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="9dp"
+                    android:textAlignment="center"
+                    android:textSize="14sp"
+                    android:textColor="#303030"
+                    android:text="최다예님 평가해주세요."/>
+                <RatingBar
+                    android:id="@+id/reviewing_rate_rating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/reviewing_rate_tv"
+                    android:layout_centerHorizontal="true"
+                    android:isIndicator="true"
+                    android:numStars="5"
+                    android:rating="4"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/reviewing_upload_relative"
                 android:layout_width="match_parent"
-                android:layout_height="76dp"
-                android:layout_below="@+id/reviewing_upload_tv">
-                <ImageView
-                    android:layout_width="76dp"
-                    android:layout_height="76dp"
-                    android:layout_marginRight="4dp"
-                    android:src="@color/colorOrange"/>
-                <ImageView
-                    android:layout_width="76dp"
-                    android:layout_height="76dp"
-                    android:layout_marginRight="4dp"
-                    android:src="@color/colorOrange"/>
-                <ImageView
-                    android:layout_width="76dp"
-                    android:layout_height="76dp"
-                    android:layout_marginRight="4dp"
-                    android:src="@color/colorOrange"/>
-                <ImageView
-                    android:layout_width="76dp"
-                    android:layout_height="76dp"
-                    android:layout_marginRight="4dp"
-                    android:src="@color/colorOrange"/>
-            </LinearLayout>
-        </RelativeLayout>
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:paddingBottom="16dp"
-            android:paddingLeft="20dp"
-            android:paddingTop="16dp"
-            android:paddingRight="20dp"
-            android:layout_below="@+id/reviewing_upload_relative"
-            android:background="#ffffff">
-            <TextView
-                android:id="@+id/reviewing_content_tv"
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="13sp"
-                android:textColor="#444444"
-                android:textStyle="bold"
-                android:layout_marginBottom="8dp"
-                tools:text="간단 리뷰" />
-            <EditText
+                android:paddingBottom="15dp"
+                android:paddingLeft="22dp"
+                android:paddingTop="15dp"
+                android:paddingRight="22dp"
+                android:layout_below="@+id/reviewing_rate_relative"
+                android:layout_marginBottom="6dp"
+                android:background="#ffffff">
+                <TextView
+                    android:id="@+id/reviewing_upload_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:textColor="#444444"
+                    android:text="사진 업로드(최대 4개)"
+                    android:layout_marginBottom="11dp" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="76dp"
+                    android:layout_below="@+id/reviewing_upload_tv">
+                    <ImageView
+                        android:layout_width="76dp"
+                        android:layout_height="76dp"
+                        android:layout_marginRight="4dp"
+                        android:src="@color/colorOrange"/>
+                    <ImageView
+                        android:layout_width="76dp"
+                        android:layout_height="76dp"
+                        android:layout_marginRight="4dp"
+                        android:src="@color/colorOrange"/>
+                    <ImageView
+                        android:layout_width="76dp"
+                        android:layout_height="76dp"
+                        android:layout_marginRight="4dp"
+                        android:src="@color/colorOrange"/>
+                    <ImageView
+                        android:layout_width="76dp"
+                        android:layout_height="76dp"
+                        android:layout_marginRight="4dp"
+                        android:src="@color/colorOrange"/>
+                </LinearLayout>
+            </RelativeLayout>
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:textSize="13sp"
-                android:gravity="top"
-                android:background="@null"
-                android:hint="장소에 대한 느낀 점이나 추억을 적어주세요"
-                android:layout_below="@+id/reviewing_content_tv"/>
-        </RelativeLayout>
+                android:layout_height="200dp"
+                android:paddingBottom="16dp"
+                android:paddingLeft="20dp"
+                android:paddingTop="16dp"
+                android:paddingRight="20dp"
+                android:layout_below="@+id/reviewing_upload_relative"
+                android:background="#ffffff">
+                <TextView
+                    android:id="@+id/reviewing_content_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="13sp"
+                    android:textColor="#444444"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="8dp"
+                    android:text="간단 리뷰" />
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textSize="13sp"
+                    android:gravity="top"
+                    android:background="@null"
+                    android:hint="장소에 대한 느낀 점이나 추억을 적어주세요"
+                    android:layout_below="@+id/reviewing_content_tv"/>
+            </RelativeLayout>
+        </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/colorPrimary"
+        android:textSize="16sp"
+        android:textColor="#ffffff"
+        android:layout_alignParentBottom="true"
+        android:text="등록하기"/>
 </RelativeLayout>
