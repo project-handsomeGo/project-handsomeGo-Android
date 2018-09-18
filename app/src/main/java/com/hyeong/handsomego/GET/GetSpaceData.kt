@@ -7,5 +7,6 @@ data class GetSpaceData (
         var place_content : String,
         var place_category : String,
         var place_star : Double,
-        var place_pic : String
+        var place_pic : String,
+        var commentCount: Int
 )

@@ -12,6 +12,7 @@ import java.util.zip.Inflater
 
 class HomeTabMapFragment : Fragment(), View.OnClickListener {
 
+    //private var networkService : NetworkService? = null
 
     var v : View? = null
     var zoomView: ZoomView? = null
@@ -163,6 +164,10 @@ class HomeTabMapFragment : Fragment(), View.OnClickListener {
                 space_info_layout.visibility = View.VISIBLE
             }
         }
+    }
+
+    fun getSpaceInfo() {
 
     }
+
 }
