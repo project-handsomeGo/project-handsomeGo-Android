@@ -92,7 +92,8 @@ class HomeTabMapFragment : Fragment(), View.OnClickListener {
 
         raiting!!.onRatingBarChangeListener = object : RatingBar.OnRatingBarChangeListener{
             override fun onRatingChanged(ratingBar: RatingBar?, rating: Float, fromUser: Boolean) {
-                rateText!!.setText(raiting.toString())
+                //rateText!!.setText(raiting.toString())
+                raiting!!.rating = rateText!!.text.toString().toFloat()
             }
         }
         return v
@@ -101,46 +102,65 @@ class HomeTabMapFragment : Fragment(), View.OnClickListener {
 
     override fun onClick(v: View?) {
         when(v){
-            yellow1 ->{
+            yellow1 ->{ //8
                 space_info_layout.visibility = View.VISIBLE
             }
-            yellow2 ->{
+            yellow2 ->{ //6
+                space_info_layout.visibility = View.VISIBLE
             }
-            yellow3 ->{
+            yellow3 ->{ //7
+                space_info_layout.visibility = View.VISIBLE
             }
-            yellow4 ->{
+            yellow4 ->{ //2
+                space_info_layout.visibility = View.VISIBLE
             }
-            yellow5 ->{
+            yellow5 ->{ //3
+                space_info_layout.visibility = View.VISIBLE
             }
-            yellow6 ->{
+            yellow6 ->{ //1
+                space_info_layout.visibility = View.VISIBLE
             }
-            yellow7 ->{
+            yellow7 ->{ //4
+                space_info_layout.visibility = View.VISIBLE
             }
-            yellow8 ->{
+            yellow8 ->{ //5
+                space_info_layout.visibility = View.VISIBLE
             }
-            blue1 -> {
+            blue1 -> { //14
+                space_info_layout.visibility = View.VISIBLE
             }
-            blue2 -> {
+            blue2 -> { //16
+                space_info_layout.visibility = View.VISIBLE
             }
-            blue3 -> {
+            blue3 -> { //12
+                space_info_layout.visibility = View.VISIBLE
             }
-            blue4 -> {
+            blue4 -> { //10
+                space_info_layout.visibility = View.VISIBLE
             }
-            blue5 -> {
+            blue5 -> { //9
+                space_info_layout.visibility = View.VISIBLE
             }
-            blue6 -> {
+            blue6 -> { //13
+                space_info_layout.visibility = View.VISIBLE
             }
-            blue7 -> {
+            blue7 -> { //15
+                space_info_layout.visibility = View.VISIBLE
             }
-            blue8 -> {
+            blue8 -> { //11
+                space_info_layout.visibility = View.VISIBLE
             }
-            green1 ->{
+            green1 ->{ //18
+                space_info_layout.visibility = View.VISIBLE
             }
-            green2 ->{
+            green2 ->{ //17
+                space_info_layout.visibility = View.VISIBLE
             }
-            green3 ->{
+            green3 ->{ //20
+                space_info_layout.visibility = View.VISIBLE
             }
-            green4 ->{
+            green4 ->{ //19
+                space_info_layout.visibility = View.VISIBLE
             }
         }
 
