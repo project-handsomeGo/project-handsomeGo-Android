@@ -189,6 +189,7 @@
 
             <!-- android:visibility="gone" -->
             <RelativeLayout
+                android:id="@+id/space_info_layout"
                 android:layout_width="333dp"
                 android:layout_height="102dp"
                 android:layout_alignBottom="@+id/blue6"

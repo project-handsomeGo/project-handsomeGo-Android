@@ -17,6 +17,31 @@ class HomeTabMapFragment : Fragment(), View.OnClickListener {
     var zoomView: ZoomView? = null
     var raiting : RatingBar? = null
     var rateText: TextView? = null
+    var space_info_layout = view!!.findViewById<RelativeLayout>(R.id.space_info_layout)
+
+    // 버튼 가져오기 yellow section
+    var yellow1 = view!!.findViewById<Button>(R.id.yellow1)
+    var yellow2 = view!!.findViewById<Button>(R.id.yellow2)
+    var yellow3 = view!!.findViewById<Button>(R.id.yellow3)
+    var yellow4 = view!!.findViewById<Button>(R.id.yellow4)
+    var yellow5 = view!!.findViewById<Button>(R.id.yellow5)
+    var yellow6 = view!!.findViewById<Button>(R.id.yellow6)
+    var yellow7 = view!!.findViewById<Button>(R.id.yellow7)
+    var yellow8 = view!!.findViewById<Button>(R.id.yellow8)
+    //버튼 가져오기 blue section
+    var blue1 = view!!.findViewById<Button>(R.id.blue1)
+    var blue2 = view!!.findViewById<Button>(R.id.blue2)
+    var blue3 = view!!.findViewById<Button>(R.id.blue3)
+    var blue4 = view!!.findViewById<Button>(R.id.blue4)
+    var blue5 = view!!.findViewById<Button>(R.id.blue5)
+    var blue6 = view!!.findViewById<Button>(R.id.blue6)
+    var blue7 = view!!.findViewById<Button>(R.id.blue7)
+    var blue8 = view!!.findViewById<Button>(R.id.blue8)
+    //버튼 가져오기 green section
+    var green1 = view!!.findViewById<Button>(R.id.green1)
+    var green2 = view!!.findViewById<Button>(R.id.green2)
+    var green3 = view!!.findViewById<Button>(R.id.green3)
+    var green4 = view!!.findViewById<Button>(R.id.green4)
 
     //private var networkService : NetworkService? = null
 
@@ -37,30 +62,6 @@ class HomeTabMapFragment : Fragment(), View.OnClickListener {
         val container = v!!.findViewById<RelativeLayout>(R.id.mapContainer)
         container.addView(zoomView)
 
-        // 버튼 가져오기 yellow section
-        var yellow1 = view!!.findViewById<Button>(R.id.yellow1)
-        var yellow2 = view!!.findViewById<Button>(R.id.yellow2)
-        var yellow3 = view!!.findViewById<Button>(R.id.yellow3)
-        var yellow4 = view!!.findViewById<Button>(R.id.yellow4)
-        var yellow5 = view!!.findViewById<Button>(R.id.yellow5)
-        var yellow6 = view!!.findViewById<Button>(R.id.yellow6)
-        var yellow7 = view!!.findViewById<Button>(R.id.yellow7)
-        var yellow8 = view!!.findViewById<Button>(R.id.yellow8)
-        //버튼 가져오기 blue section
-        var blue1 = view!!.findViewById<Button>(R.id.blue1)
-        var blue2 = view!!.findViewById<Button>(R.id.blue2)
-        var blue3 = view!!.findViewById<Button>(R.id.blue3)
-        var blue4 = view!!.findViewById<Button>(R.id.blue4)
-        var blue5 = view!!.findViewById<Button>(R.id.blue5)
-        var blue6 = view!!.findViewById<Button>(R.id.blue6)
-        var blue7 = view!!.findViewById<Button>(R.id.blue7)
-        var blue8 = view!!.findViewById<Button>(R.id.blue8)
-        //버튼 가져오기 green section
-        var green1 = view!!.findViewById<Button>(R.id.green1)
-        var green2 = view!!.findViewById<Button>(R.id.green2)
-        var green3 = view!!.findViewById<Button>(R.id.green3)
-        var green4 = view!!.findViewById<Button>(R.id.green4)
-
         //클릭 리스너 달기
         yellow1!!.setOnClickListener(this)
         yellow2!!.setOnClickListener(this)
@@ -71,6 +72,20 @@ class HomeTabMapFragment : Fragment(), View.OnClickListener {
         yellow7!!.setOnClickListener(this)
         yellow8!!.setOnClickListener(this)
 
+        blue1!!.setOnClickListener(this)
+        blue2!!.setOnClickListener(this)
+        blue3!!.setOnClickListener(this)
+        blue4!!.setOnClickListener(this)
+        blue5!!.setOnClickListener(this)
+        blue6!!.setOnClickListener(this)
+        blue7!!.setOnClickListener(this)
+        blue8!!.setOnClickListener(this)
+
+        green1!!.setOnClickListener(this)
+        green2!!.setOnClickListener(this)
+        green3!!.setOnClickListener(this)
+        green4!!.setOnClickListener(this)
+
         //Rating Bar setting
         raiting = view!!.findViewById(R.id.star_rating)
         rateText = view!!.findViewById(R.id.star_text)
@@ -79,15 +94,55 @@ class HomeTabMapFragment : Fragment(), View.OnClickListener {
             override fun onRatingChanged(ratingBar: RatingBar?, rating: Float, fromUser: Boolean) {
                 rateText!!.setText(raiting.toString())
             }
-        };
-
-
-
+        }
         return v
 
     }
 
     override fun onClick(v: View?) {
+        when(v){
+            yellow1 ->{
+                space_info_layout.visibility = View.VISIBLE
+            }
+            yellow2 ->{
+            }
+            yellow3 ->{
+            }
+            yellow4 ->{
+            }
+            yellow5 ->{
+            }
+            yellow6 ->{
+            }
+            yellow7 ->{
+            }
+            yellow8 ->{
+            }
+            blue1 -> {
+            }
+            blue2 -> {
+            }
+            blue3 -> {
+            }
+            blue4 -> {
+            }
+            blue5 -> {
+            }
+            blue6 -> {
+            }
+            blue7 -> {
+            }
+            blue8 -> {
+            }
+            green1 ->{
+            }
+            green2 ->{
+            }
+            green3 ->{
+            }
+            green4 ->{
+            }
+        }
 
     }
 }
