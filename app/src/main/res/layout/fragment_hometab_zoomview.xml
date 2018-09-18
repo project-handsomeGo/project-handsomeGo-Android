@@ -193,8 +193,58 @@
                 android:layout_height="102dp"
                 android:layout_alignBottom="@+id/blue6"
                 android:layout_centerHorizontal="true"
-                android:background="#CCEEFF"
-                >
+                android:background="#B7F0B1">
+
+                <ImageView
+                    android:id="@+id/map_img"
+                    android:layout_width="66dp"
+                    android:layout_height="66dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="18dp"
+                    android:background="#47C83E" />
+
+                <TextView
+                    android:id="@+id/map_space_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="24dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_toRightOf="@+id/map_img"
+                    android:text="덕수궁 돌담길"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:id="@+id/map_space_addr"
+                    android:layout_width="wrap_content"
+                    android:layout_height="17dp"
+                    android:layout_below="@+id/map_space_name"
+                    android:layout_marginLeft="15dp"
+                    android:layout_toRightOf="@+id/map_img"
+                    android:text="서울 중구 정동"
+                    android:textSize="11dp" />
+
+                <TextView
+                    android:id="@+id/star_text"
+                    android:layout_width="25dp"
+                    android:layout_height="27dp"
+                    android:layout_below="@+id/map_space_addr"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_toRightOf="@+id/map_img"
+                    android:text="4.1"
+                    android:textSize="18dp" />
+
+                <RatingBar
+                    android:id="@+id/star_rating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="?android:ratingBarStyle"
+                    android:layout_below="@+id/map_space_addr"
+                    android:layout_toRightOf="@+id/star_text"
+                    android:numStars="5"
+                    android:stepSize="0.1"
+                    android:isIndicator="true"
+                    />
 
             </RelativeLayout>
         </RelativeLayout>

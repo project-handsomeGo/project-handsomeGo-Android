@@ -1,21 +1,22 @@
 package com.hyeong.handsomego
 
 import android.content.Context
+import android.media.Rating
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.Button
-import android.widget.LinearLayout
-import android.widget.RelativeLayout
+import android.view.*
+import android.widget.*
+import org.w3c.dom.Text
 import pl.polidea.view.ZoomView
+import java.util.zip.Inflater
 
 class HomeTabMapFragment : Fragment(), View.OnClickListener {
 
 
     var v : View? = null
     var zoomView: ZoomView? = null
+    var raiting : RatingBar? = null
+    var rateText: TextView? = null
 
     //private var networkService : NetworkService? = null
 
@@ -69,6 +70,18 @@ class HomeTabMapFragment : Fragment(), View.OnClickListener {
         yellow6!!.setOnClickListener(this)
         yellow7!!.setOnClickListener(this)
         yellow8!!.setOnClickListener(this)
+
+        //Rating Bar setting
+        raiting = view!!.findViewById(R.id.star_rating)
+        rateText = view!!.findViewById(R.id.star_text)
+
+        raiting!!.onRatingBarChangeListener = object : RatingBar.OnRatingBarChangeListener{
+            override fun onRatingChanged(ratingBar: RatingBar?, rating: Float, fromUser: Boolean) {
+                rateText!!.setText(raiting.toString())
+            }
+        };
+
+
 
         return v
 
