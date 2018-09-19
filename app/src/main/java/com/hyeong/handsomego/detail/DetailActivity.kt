@@ -23,8 +23,10 @@ class DetailActivity : AppCompatActivity() {
         detail_toolbar.setContentInsetsAbsolute(0,0);   // ActionBar Padding 제거
         val listener = AppBarLayout.OnOffsetChangedListener { appBarLayout, verticalOffset ->
             if (verticalOffset <= -1 * dpToPx(126.5f, applicationContext)) {
+                detail_line_view.visibility = View.VISIBLE
                 detail_toolbar.visibility = View.VISIBLE
             } else {
+                detail_line_view.visibility = View.INVISIBLE
                 detail_toolbar.visibility = View.INVISIBLE
             }
         }
