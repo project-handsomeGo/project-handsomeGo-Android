@@ -15,7 +15,7 @@ class StampAdapter (private var stampItem : ArrayList<StampItem>, val context : 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StampViewholder {
 
-        val mainView : View = LayoutInflater.from(parent.context).inflate(R.layout.stamp_fragment,parent,false)
+        val mainView : View = LayoutInflater.from(parent.context).inflate(R.layout.stamp_img,parent,false)
         return  StampViewholder(mainView)
     }
 
