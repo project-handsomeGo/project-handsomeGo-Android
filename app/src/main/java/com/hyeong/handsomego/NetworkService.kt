@@ -9,7 +9,8 @@ import com.hyeong.handsomego.GET.GetSpaceResponse
 
 interface NetworkService {
 
-    //장소 정보 불러오기
-    @GET("places")
-    fun getSpaceInfo(@Query("place_id") place_id : Int) : Call<GetSpaceResponse>
+    //특정 장소 정보 불러오기
+    @GET("places/{place_id}")
+    fun getSpaceInfo(@Path("place_id") place_id : Int) : Call<GetSpaceResponse>
+
 }

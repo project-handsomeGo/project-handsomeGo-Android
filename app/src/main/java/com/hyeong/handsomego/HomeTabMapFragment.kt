@@ -1,24 +1,40 @@
 package com.hyeong.handsomego
 
 import android.content.Context
+import android.content.Intent.getIntent
 import android.media.Rating
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.util.Log
 import android.view.*
 import android.widget.*
+import com.bumptech.glide.Glide
+import com.hyeong.handsomego.GET.GetSpaceData
+import com.hyeong.handsomego.GET.GetSpaceResponse
 import org.w3c.dom.Text
 import pl.polidea.view.ZoomView
 import java.util.zip.Inflater
+import com.hyeong.handsomego.NetworkService
+import retrofit2.Call
+import retrofit2.Response
+import javax.security.auth.callback.Callback
 
 class HomeTabMapFragment : Fragment(), View.OnClickListener {
 
-    //private var networkService : NetworkService? = null
+    private var networkService : NetworkService? = null
+    private var specificSpaceInfo = ArrayList<GetSpaceData>()
 
     var v : View? = null
     var zoomView: ZoomView? = null
     var raiting : RatingBar? = null
     var rateText: TextView? = null
     var space_info_layout = view!!.findViewById<RelativeLayout>(R.id.space_info_layout)
+
+    //Relative Layout 가져오기
+    var map_space_name = view!!.findViewById<TextView>(R.id.map_space_name)
+    var map_space_addr = view!!.findViewById<TextView>(R.id.map_space_addr)
+    var star_text = view!!.findViewById<TextView>(R.id.star_text)
+    var map_img = view!!.findViewById<ImageView>(R.id.map_img)
 
     // 버튼 가져오기 yellow section
     var yellow1 = view!!.findViewById<Button>(R.id.yellow1)
@@ -50,6 +66,8 @@ class HomeTabMapFragment : Fragment(), View.OnClickListener {
         val v = inflater.inflate(R.layout.fragment_home_tab_map,container,false)
         val view = (context!!.getSystemService(Context.LAYOUT_INFLATER_SERVICE)as LayoutInflater).inflate(R.layout.fragment_hometab_zoomview,null,false)
         val layoutParams = LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
+
+        networkService = ApplicationController.instance!!.networkService
 
         zoomView = ZoomView(context)
         zoomView!!.addView(view)
@@ -105,6 +123,11 @@ class HomeTabMapFragment : Fragment(), View.OnClickListener {
         when(v){
             yellow1 ->{ //8
                 space_info_layout.visibility = View.VISIBLE
+                getSpaceInfo(8)
+                Glide.with(this).load(specificSpaceInfo[0].place_pic).into(map_img)
+                map_space_name.setText(specificSpaceInfo[0].place_name)
+                map_space_addr.setText(specificSpaceInfo[0].place_address)
+                star_text.setText(specificSpaceInfo[0].place_star.toString())
             }
             yellow2 ->{ //6
                 space_info_layout.visibility = View.VISIBLE
@@ -166,8 +189,41 @@ class HomeTabMapFragment : Fragment(), View.OnClickListener {
         }
     }
 
-    fun getSpaceInfo() {
+    fun getSpaceInfo(place_id : Int) {
+        val spaceInfobyIdResponse = networkService!!.getSpaceInfo(place_id)
+        spaceInfobyIdResponse!!.enqueue(object : retrofit2.Callback<GetSpaceResponse> {
 
+            override fun onResponse(call: Call<GetSpaceResponse>?, response: Response<GetSpaceResponse>?) {
+                if(response!!.isSuccessful){
+                    if(response!!.body().message.equals("Successful Get Place Data")){
+                        if (response!!.body().data != null){
+                            for(i in 0 .. response!!.body().data.size-1){
+                                specificSpaceInfo.add(GetSpaceData(response!!.body().data[i].place_id,
+                                        response!!.body().data[i].place_name,
+                                        response!!.body().data[i].place_address,
+                                        response!!.body().data[i].place_content,
+                                        response!!.body().data[i].place_category,
+                                        response!!.body().data[i].place_star,
+                                        response!!.body().data[i].place_pic,
+                                        response!!.body().data[i].commentCount))
+
+                            }
+                        }else{
+                            Log.v("dek","data is null")
+                        }
+                    }else{
+                        Log.v("dek","Cannot get place data")
+                    }
+                }else{
+                    Log.v("dek","response is not successful")
+                }
+            }
+
+            override fun onFailure(call: Call<GetSpaceResponse>?, t: Throwable?) {
+
+            }
+
+        })
     }
 
 }

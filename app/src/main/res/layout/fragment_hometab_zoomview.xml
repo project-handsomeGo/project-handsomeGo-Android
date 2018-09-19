@@ -20,8 +20,9 @@
             <!-- android:src="@drawable/map_image" -->
             <ImageView
                 android:id="@+id/map"
-                android:layout_width="match_parent"
-                android:layout_height="372dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
                 android:scaleType="centerInside"
                 android:src="@drawable/map" />
 
@@ -31,56 +32,61 @@
                 android:id="@+id/yellow1"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_marginLeft="64dp"
-                android:layout_marginTop="333dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="31dp"
                 android:background="@drawable/seoulgarden" />
 
             <Button
                 android:id="@+id/yellow2"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_marginLeft="105dp"
-                android:layout_marginTop="411dp"
+                android:layout_below="@+id/yellow8"
+                android:layout_toEndOf="@+id/yellow1"
                 android:background="@drawable/namboo" />
 
             <Button
                 android:id="@+id/yellow3"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_marginLeft="155dp"
-                android:layout_marginTop="382dp"
+                android:layout_above="@+id/blue1"
+                android:layout_toStartOf="@+id/blue8"
                 android:background="@drawable/hamsangpark" />
 
             <Button
                 android:id="@+id/yellow4"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_marginLeft="168dp"
-                android:layout_marginTop="335dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="138dp"
                 android:background="@drawable/culturestocking" />
 
             <Button
                 android:id="@+id/yellow5"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_marginLeft="205dp"
-                android:layout_marginTop="412dp"
+                android:layout_above="@+id/blue8"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="-359dp"
                 android:background="@drawable/underbunker" />
 
             <Button
                 android:id="@+id/yellow6"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_marginLeft="271dp"
-                android:layout_marginTop="307dp"
+                android:layout_below="@+id/blue1"
+                android:layout_toStartOf="@+id/blue4"
                 android:background="@drawable/geoksugung" />
 
             <Button
                 android:id="@+id/yellow7"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_marginLeft="297dp"
-                android:layout_marginTop="259dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginEnd="106dp"
+                android:layout_marginTop="133dp"
                 android:background="@drawable/gyeongchun" />
 
             <Button
@@ -95,32 +101,34 @@
                 android:id="@+id/blue1"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_marginLeft="167dp"
-                android:layout_marginTop="263dp"
+                android:layout_above="@+id/blue4"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="129dp"
                 android:background="@drawable/innopark" />
 
             <Button
                 android:id="@+id/blue2"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_marginLeft="204dp"
-                android:layout_marginTop="368dp"
+                android:layout_above="@+id/yellow2"
+                android:layout_toEndOf="@+id/yellow4"
                 android:background="@drawable/entrepreneurshiphub" />
 
             <Button
                 android:id="@+id/blue3"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_marginLeft="272dp"
-                android:layout_marginTop="350dp"
+                android:layout_alignStart="@+id/yellow6"
+                android:layout_below="@+id/yellow6"
                 android:background="@drawable/carindustry" />
 
             <Button
                 android:id="@+id/blue4"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_marginLeft="321dp"
-                android:layout_marginTop="305dp"
+                android:layout_above="@+id/green2"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="83dp"
                 android:background="@drawable/hasudo" />
 
             <Button
@@ -135,56 +143,62 @@
                 android:id="@+id/blue6"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_marginLeft="318dp"
-                android:layout_marginTop="496dp"
+                android:layout_above="@+id/blue5"
+                android:layout_alignParentEnd="true"
+                android:layout_marginBottom="-391dp"
+                android:layout_marginEnd="92dp"
                 android:background="@drawable/innohub" />
 
             <Button
                 android:id="@+id/blue7"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_marginLeft="345dp"
-                android:layout_marginTop="234dp"
+                android:layout_alignTop="@+id/yellow3"
+                android:layout_marginStart="-106dp"
+                android:layout_toEndOf="@+id/yellow7"
                 android:background="@drawable/seoulscience" />
 
             <Button
                 android:id="@+id/blue8"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_marginLeft="358dp"
-                android:layout_marginTop="359dp"
+                android:layout_below="@+id/map"
+                android:layout_marginEnd="-138dp"
+                android:layout_toStartOf="@+id/yellow4"
                 android:background="@drawable/biohub" />
 
             <Button
                 android:id="@+id/green1"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_marginLeft="204dp"
-                android:layout_marginTop="290dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="166dp"
+                android:layout_toEndOf="@+id/yellow4"
                 android:background="@drawable/donuimun" />
 
             <Button
                 android:id="@+id/green2"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_marginLeft="223dp"
-                android:layout_marginTop="329dp"
+                android:layout_above="@+id/yellow8"
+                android:layout_marginBottom="-276dp"
+                android:layout_toStartOf="@+id/blue3"
                 android:background="@drawable/seoullo" />
 
             <Button
                 android:id="@+id/green3"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_marginLeft="247dp"
-                android:layout_marginTop="275dp"
+                android:layout_alignTop="@+id/blue1"
+                android:layout_toEndOf="@+id/green1"
                 android:background="@drawable/sewoon" />
 
             <Button
                 android:id="@+id/green4"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_marginLeft="317dp"
-                android:layout_marginTop="348dp"
+                android:layout_below="@+id/blue5"
+                android:layout_toEndOf="@+id/yellow3"
                 android:background="@drawable/seoulbiennale" />
 
             <!-- android:visibility="gone" -->
@@ -194,8 +208,8 @@
                 android:layout_height="102dp"
                 android:layout_alignBottom="@+id/blue6"
                 android:layout_centerHorizontal="true"
-                android:visibility="gone"
-                android:background="#B7F0B1">
+                android:background="#B7F0B1"
+                android:visibility="gone">
 
                 <ImageView
                     android:id="@+id/map_img"
@@ -238,15 +252,14 @@
 
                 <RatingBar
                     android:id="@+id/star_rating"
+                    style="?android:ratingBarStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    style="?android:ratingBarStyle"
                     android:layout_below="@+id/map_space_addr"
                     android:layout_toRightOf="@+id/star_text"
-                    android:numStars="5"
-                    android:stepSize="0.1"
                     android:isIndicator="true"
-                    />
+                    android:numStars="5"
+                    android:stepSize="0.1" />
 
             </RelativeLayout>
         </RelativeLayout>
