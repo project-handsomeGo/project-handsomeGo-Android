@@ -34,10 +34,18 @@ class StampFragment : Fragment() {
         stampItem.add(StampItem(R.drawable.brown))
         stampItem.add(StampItem(R.drawable.brown))
         stampItem.add(StampItem(R.drawable.brown))
+        stampItem.add(StampItem(R.drawable.brown))
+        stampItem.add(StampItem(R.drawable.brown))
+        stampItem.add(StampItem(R.drawable.brown))
+        stampItem.add(StampItem(R.drawable.brown))
+        stampItem.add(StampItem(R.drawable.brown))
+        stampItem.add(StampItem(R.drawable.brown))
+        stampItem.add(StampItem(R.drawable.brown))
+        stampItem.add(StampItem(R.drawable.brown))
 
 
         stampAdapter = StampAdapter(stampItem, context!!)
-        stamp_recycler.layoutManager = GridLayoutManager(context,4)
+        stamp_recycler.layoutManager = GridLayoutManager(context,5)
         stamp_recycler.adapter = stampAdapter
 
     }
