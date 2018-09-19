@@ -16,13 +16,15 @@ class MypageTabFragment : Fragment(), View.OnClickListener {
     override fun onClick(v: View?) {
         when (v) {
             stamp_more_btn -> {
-                stamp_more_btn.isSelected = true
-                //addFragment(StampFragment())
-                val fragmentTransaction = fragmentManager!!.beginTransaction()
-                fragmentTransaction.replace(R.id.mypage_frame, StampFragment()).commit()
+                if(stamp_more_btn.isSelected){
+                    mypage_frame.visibility = View.VISIBLE
+                    stamp_more_btn.isSelected = false
 
-                stamp_more_btn.isSelected = false
-                fragmentTransaction.remove(StampFragment())
+                }else{
+                    stamp_more_btn.isSelected = true
+                    mypage_frame.visibility = View.GONE
+                }
+
             }
         }
     }
