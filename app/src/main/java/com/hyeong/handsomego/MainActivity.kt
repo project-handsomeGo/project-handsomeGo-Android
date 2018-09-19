@@ -12,13 +12,12 @@ import com.hyeong.handsomego.my_page.MypageTabFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 
-
-
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
 
     var btn: ImageView? = null
     var iv: ImageView? = null
+
 
     override fun onClick(v: View?) {
 
@@ -36,6 +35,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             }
         }
 
+
+
                     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,7 +49,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         qrcode_icon.setOnClickListener(this)
         mypage_icon.setOnClickListener(this)
 
-        //setup()
 
     }
 
