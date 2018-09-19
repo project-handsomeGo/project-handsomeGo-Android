@@ -56,8 +56,8 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/reviewing_rate_tv"
                     android:layout_centerHorizontal="true"
-                    android:isIndicator="true"
-                    android:numStars="5"
+                    android:isIndicator="false"
+                    android:stepSize="0.5"
                     android:rating="4"/>
             </RelativeLayout>
             <RelativeLayout
