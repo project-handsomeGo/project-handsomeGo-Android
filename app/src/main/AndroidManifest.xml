@@ -19,6 +19,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".more_review.MoreReviewActivity"></activity>
+        <activity android:name=".after_stamp.AfterStampActivity"></activity>
     </application>
 
 </manifest>
