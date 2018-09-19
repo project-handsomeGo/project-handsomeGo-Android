@@ -10,6 +10,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class ApplicationController : Application() {
     lateinit var networkService: NetworkService
     private val baseUrl = "http://bghgu.tk:3000/api/"
+
     companion object {
         lateinit var instance : ApplicationController
     }
