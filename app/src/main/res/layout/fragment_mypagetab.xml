@@ -156,30 +156,47 @@
                         android:layout_height="20dp"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
-                        android:src="@drawable/more_right" />
+                        android:src="@drawable/stamp_more_btn" />
                 </RelativeLayout>
+
+
 
             </LinearLayout>
 
 
         </LinearLayout>
 
-<!--
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/stamp_recycler"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-        </android.support.v7.widget.RecyclerView>
-
-
--->
         <FrameLayout
+            android:visibility="invisible"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/mypage_frame">
 
         </FrameLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:gravity="center_vertical"
+                android:text="  로그아웃"
+                android:textColor="#111111"
+                android:textSize="15dp" />
+
+            <ImageView
+                android:id="@+id/logout_btn"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/logout_btn" />
+        </RelativeLayout>
+
 
     </LinearLayout>
 </RelativeLayout>
