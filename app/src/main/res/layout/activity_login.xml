@@ -18,9 +18,10 @@
     <LinearLayout
         android:id="@+id/into_kakao"
         android:layout_width="280dp"
-        android:layout_height="40dp"
+        android:layout_height="50dp"
         android:background="@drawable/yellow_round_square"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="16dp"
+        android:elevation="3dp"
         android:gravity="center">
 
         <ImageView
@@ -34,6 +35,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="카카오 계정으로 로그인"
+            android:textSize="16sp"
             android:textColor="#432a14"
             android:textStyle="bold" />
 
@@ -42,7 +44,8 @@
     <LinearLayout
         android:id="@+id/into_guest"
         android:layout_width="280dp"
-        android:layout_height="40dp"
+        android:layout_height="50dp"
+        android:elevation="3dp"
         android:background="@drawable/white_round_square"
         android:gravity="center">
 
@@ -50,8 +53,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="18sp"
             android:textColor="#74b9ff"
-            tools:text="게스트로 들어가기"
+            android:text="게스트로 들어가기"
             />
     </LinearLayout>
 
