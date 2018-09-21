@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f9f9f9"
+    tools:context=".after_stamp.SimpleInfoActivity">
+    <RelativeLayout
+        android:id="@+id/simple_top_relative"
+        android:layout_width="match_parent"
+        android:layout_height="246dp"
+        android:background="@drawable/ic_launcher_background">
+        <TextView
+            android:id="@+id/simple_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/simple_address_tv"
+            android:layout_marginLeft="21dp"
+            android:text="덕수궁 돌담길"
+            android:textColor="#ffffff"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/simple_address_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="13dp"
+            android:layout_marginLeft="21dp"
+            android:layout_marginTop="1dp"
+            android:text="서울시 중구 어쩌구"
+            android:textColor="#ffffff"
+            android:textSize="15sp" />
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#ffffff"
+        android:layout_below="@+id/simple_top_relative">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="11dp"
+                android:layout_height="53dp"
+                android:background="@drawable/orange_square"
+                android:layout_marginLeft="16dp"/>
+            <TextView
+                android:id="@+id/simple_info_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="13sp"
+                android:textColor="#303030"
+                android:layout_marginTop="27dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginBottom="35dp"
+                android:text="기존의 도로를 보행자 중심의 도로로
+재정비하고, 보행자를 위해 보도와 차도 공존도로 및
+푸르름이 가득한 가로공간인 녹도의 개념을 복합적으로
+도입한 우리나라 최초의 사례로 길이는 900m이다."
+                />
+        </RelativeLayout>
+        <View
+            android:id="@+id/simple_line_view"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#f2f2f2"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_below="@id/simple_line_view">
+            <TextView
+                android:id="@+id/simple_review_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textColor="#434343"
+                android:layout_marginRight="27dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                tools:text="189"
+                />
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="16dp"
+                android:background="@color/colorOrange"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/simple_review_tv"
+                android:layout_marginRight="4dp"/>
+        </RelativeLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#f2f2f2"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/simple_get_btn"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/colorPrimary"
+        android:textSize="16sp"
+        android:textColor="#ffffff"
+        android:layout_alignParentBottom="true"
+        android:text="스탬프 적립"/>
+</RelativeLayout>
