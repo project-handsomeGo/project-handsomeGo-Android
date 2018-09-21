@@ -86,7 +86,7 @@
             <ImageView
                 android:layout_width="24dp"
                 android:layout_height="16dp"
-                android:background="@color/colorOrange"
+                android:background="@drawable/reviewcount"
                 android:layout_centerVertical="true"
                 android:layout_toLeftOf="@+id/simple_review_tv"
                 android:layout_marginRight="4dp"/>
