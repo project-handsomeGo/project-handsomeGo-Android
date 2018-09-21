@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.WindowManager
 import com.bumptech.glide.Glide
+import com.hyeong.handsomego.Idx
 import com.hyeong.handsomego.R
 import com.hyeong.handsomego.applicationController.ApplicationController
 import com.hyeong.handsomego.applicationController.NetworkService
@@ -24,18 +25,18 @@ class SimpleInfoActivity : AppCompatActivity() {
         window.statusBarColor = Color.TRANSPARENT
 
         // Get Place Info
-        val getPlaceInfoResponse = networkService.getPlaceInfo(1)
+        val getPlaceInfoResponse = networkService.getPlaceInfo(Idx.place_id)
         getPlaceInfoResponse.enqueue(object : Callback<GetPlaceInfoResponse>{
             override fun onFailure(call: Call<GetPlaceInfoResponse>?, t: Throwable?) {
             }
 
             override fun onResponse(call: Call<GetPlaceInfoResponse>?, response: Response<GetPlaceInfoResponse>?) {
                 if(response!!.isSuccessful){
-                    simple_name_tv.text = response.body().data[0].place_name
-                    simple_address_tv.text = response.body().data[0].place_address
-                    simple_info_tv.text = response.body().data[0].place_content
-                    simple_review_tv.text = response.body().data[0].commentCount.toString()
-                    Glide.with(SimpleInfoActivity()).load(response.body().data[0].place_pic).into(simple_img_iv)
+                    simple_name_tv.text = response.body().data.place_name
+                    simple_address_tv.text = response.body().data.place_address
+                    simple_info_tv.text = response.body().data.place_content
+                    simple_review_tv.text = response.body().data.commentCount.toString()
+                    Glide.with(this@SimpleInfoActivity).load(response.body().data.place_pic).into(simple_img_iv)
                 }
             }
 
