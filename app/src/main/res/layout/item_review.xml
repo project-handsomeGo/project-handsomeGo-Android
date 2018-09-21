@@ -42,6 +42,7 @@
                 android:text="2018.07.12"/>
         </RelativeLayout>
         <RatingBar
+            android:id="@+id/review_rating_rating"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/review_top_relative"
@@ -60,35 +61,37 @@
             android:layout_marginTop="28dp"
             android:textSize="12sp"
             android:textColor="#444444"
-            android:text="덕수궁은 너무 좋아요 너무너무 좋아요 또 가고 싶어요
-    우리사랑은 불장난 에오에오 마럽인즈어파이어 호우
-    덕수궁돌담길 가을에 걸으면 짱짱맨 너무너무 좋았맨"/>
+            android:text="내용"/>
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="76dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:orientation="horizontal"
             android:layout_below="@id/review_content_tv">
             <ImageView
+                android:id="@+id/review_img1_iv"
                 android:layout_width="76dp"
-                android:layout_height="match_parent"
+                android:layout_height="76dp"
                 android:layout_marginRight="4dp"
-                android:src="@color/colorOrange"/>
+                android:visibility="gone"/>
             <ImageView
+                android:id="@+id/review_img2_iv"
                 android:layout_width="76dp"
                 android:layout_height="match_parent"
                 android:layout_marginRight="4dp"
-                android:src="@color/colorOrange"/>
+                android:visibility="gone"/>
             <ImageView
+                android:id="@+id/review_img3_iv"
                 android:layout_width="76dp"
                 android:layout_height="match_parent"
                 android:layout_marginRight="4dp"
-                android:src="@color/colorOrange"/>
+                android:visibility="gone"/>
             <ImageView
+                android:id="@+id/review_img4_iv"
                 android:layout_width="76dp"
                 android:layout_height="match_parent"
                 android:layout_marginRight="4dp"
-                android:src="@color/colorOrange"/>
+                android:visibility="gone"/>
         </LinearLayout>
     </RelativeLayout>
     <View
