@@ -159,12 +159,12 @@
             android:id="@+id/after_mark_iv"
             android:layout_width="12dp"
             android:layout_height="12dp"
+            android:layout_alignBottom="@+id/after_first_tv"
             android:background="@drawable/question_mark"/>
         <TextView
             android:id="@+id/after_first_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/after_mark_iv"
             android:layout_toRightOf="@+id/after_mark_iv"
             android:layout_marginLeft="3dp"
             android:textSize="12sp"
