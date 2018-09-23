@@ -7,37 +7,38 @@ import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.ImageView
+import com.google.zxing.integration.android.IntentIntegrator
 import com.hyeong.handsomego.home.HomeTabFragment
 import com.hyeong.handsomego.my_page.MypageTabFragment
+import com.hyeong.handsomego.qr_code.QRcodeTabFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
-
-
-    var btn: ImageView? = null
-    var iv: ImageView? = null
-
 
     override fun onClick(v: View?) {
 
         when(v) {
             main_icon -> {
                 replaceFragment(HomeTabFragment())
+                main_icon.isSelected = false
+                qrcode_icon.isSelected = true
+                mypage_icon.isSelected = false
             }
             qrcode_icon -> {
-                val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-                startActivity(intent)
-                setup()
+                replaceFragment(QRcodeTabFragment())
+                main_icon.isSelected = false
+                qrcode_icon.isSelected = true
+                mypage_icon.isSelected = false
             }
             mypage_icon -> {
                 replaceFragment(MypageTabFragment())
+                main_icon.isSelected = false
+                qrcode_icon.isSelected = false
+                mypage_icon.isSelected = true
             }
         }
-
-
-
-                    }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,7 +50,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         qrcode_icon.setOnClickListener(this)
         mypage_icon.setOnClickListener(this)
 
-
+        main_icon.isSelected = true
     }
 
     //Fragment 붙이는 함수
@@ -67,10 +68,4 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         transaction.replace(R.id.main_frame,fragment)
         transaction.commit()
     }
-
-    private fun setup() {
-        btn = findViewById(R.id.qrcode_icon) as ImageView
-        iv = findViewById(R.id.iv) as ImageView
-    }
-
 }
