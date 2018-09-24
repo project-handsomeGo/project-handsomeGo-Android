@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.hyeong.handsomego">
+
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
     <application
         android:name=".applicationController.ApplicationController"
         android:allowBackup="true"
@@ -13,15 +16,22 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".detail.DetailActivity" />
         <activity android:name=".login.LoginActivity">
-        </activity>
-        <activity android:name=".more_review.MoreReviewActivity" />
-        <activity android:name=".after_stamp.AfterStampActivity" ></activity>
-        <activity android:name=".after_stamp.SimpleInfoActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter></activity>
+            </intent-filter>
+        </activity>
+        <activity android:name=".more_review.MoreReviewActivity"></activity>
+        <activity android:name=".after_stamp.AfterStampActivity" />
+        <activity android:name=".after_stamp.SimpleInfoActivity" />
+        <activity android:name=".qr_code.CameraActivity"></activity>
+        <activity android:name=".qr.CaptureActivityAnyOrientation"
+            android:screenOrientation="fullSensor"
+            android:stateNotNeeded="true"
+            android:theme="@style/zxing_CaptureTheme"
+            android:windowSoftInputMode="stateAlwaysHidden"
+            />
     </application>
 
 </manifest>
