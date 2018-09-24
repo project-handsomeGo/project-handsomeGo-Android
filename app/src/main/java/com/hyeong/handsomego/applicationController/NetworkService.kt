@@ -39,7 +39,8 @@ interface NetworkService {
     fun postStampPlace(@Header("Authorization") token : String, @Path("place_id") idx : Int) : Call<PostStampPlaceResponse>
 
     // 마이페이지 조회
-    //@GET()
+    @GET("mypage")
+    fun getMypage(@Header("Authorization") token : String) : Call<GetMypageResponse>
 
     // 스탬프 조회
     @GET("stamps")
