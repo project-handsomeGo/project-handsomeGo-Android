@@ -1,15 +1,19 @@
 package com.hyeong.handsomego.after_stamp
 
+import android.content.Intent
 import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.WindowManager
 import com.bumptech.glide.Glide
 import com.hyeong.handsomego.Idx
 import com.hyeong.handsomego.R
+import com.hyeong.handsomego.Token
 import com.hyeong.handsomego.applicationController.ApplicationController
 import com.hyeong.handsomego.applicationController.NetworkService
 import com.hyeong.handsomego.get.GetPlaceInfoResponse
+import com.hyeong.handsomego.post.PostStampPlaceResponse
 import kotlinx.android.synthetic.main.activity_simple_info.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -39,7 +43,18 @@ class SimpleInfoActivity : AppCompatActivity() {
                     Glide.with(this@SimpleInfoActivity).load(response.body().data.place_pic).into(simple_img_iv)
                 }
             }
-
         })
+
+        simple_get_btn.setOnClickListener { v ->
+            val postStampResponse = networkService.postStampPlace(Token.token, Idx.place_id)
+            postStampResponse.enqueue(object : Callback<PostStampPlaceResponse>{
+                override fun onFailure(call: Call<PostStampPlaceResponse>?, t: Throwable?) {
+                }
+
+                override fun onResponse(call: Call<PostStampPlaceResponse>?, response: Response<PostStampPlaceResponse>?) {
+                }
+            })
+            startActivity(Intent(applicationContext, AfterStampActivity::class.java))
+        }
     }
 }

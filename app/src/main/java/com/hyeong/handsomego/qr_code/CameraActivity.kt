@@ -4,10 +4,11 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
 import com.google.zxing.integration.android.IntentIntegrator
 import com.google.zxing.integration.android.IntentResult
+import com.hyeong.handsomego.Idx
 import com.hyeong.handsomego.R
+import com.hyeong.handsomego.after_stamp.SimpleInfoActivity
 
 class CameraActivity : AppCompatActivity() {
 
@@ -20,7 +21,7 @@ class CameraActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         val result : IntentResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, data)
-        Toast.makeText(this,result.contents,Toast.LENGTH_LONG).show()
-        Log.d("asd",result.contents)
+        Idx.place_id = result.contents.toInt()
+        startActivity(Intent(applicationContext,SimpleInfoActivity::class.java))
     }
 }

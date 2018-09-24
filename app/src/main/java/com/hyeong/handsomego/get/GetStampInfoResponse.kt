@@ -5,6 +5,6 @@ package com.hyeong.handsomego.get
  */
 data class GetStampInfoResponse (
     var message  : String,
-    var data : ArrayList<GetStampInfoResponseData>
+    var data : GetStampInfoResponseData
 
 )
