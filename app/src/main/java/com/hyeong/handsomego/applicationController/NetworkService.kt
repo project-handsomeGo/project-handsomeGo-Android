@@ -6,6 +6,7 @@ import com.hyeong.handsomego.get.GetPlaceInfoResponse
 import com.hyeong.handsomego.get.GetStampInfoResponse
 import com.hyeong.handsomego.get.GetStampPlaceResponse
 import com.hyeong.handsomego.post.PostStampPlaceResponse
+import com.hyeong.handsomego.get.*
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Header
@@ -16,6 +17,11 @@ import retrofit2.http.Path
  * Created by HYEON on 2018-09-19.
  */
 interface NetworkService {
+
+    //특정 장소 정보 불러오기
+    @GET("places/{place_id}")
+    fun getSpaceInfo(@Path("place_id") place_id : Int) : Call<GetSpaceResponse>
+
     // 댓글 상세 조회
     @GET("comments/{comment_idx}")
     fun getMoreReview(@Path("comment_idx") idx : Int):Call<GetMoreReviewResponse>
