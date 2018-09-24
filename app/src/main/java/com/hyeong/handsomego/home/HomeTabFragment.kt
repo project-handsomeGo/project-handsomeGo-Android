@@ -18,15 +18,11 @@ class HomeTabFragment : Fragment(), View.OnClickListener {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val v = inflater.inflate(R.layout.fragment_hometab, container, false)
 
-
         addFragment(HomeTabMapFragment())
-
         v.map_btn.setOnClickListener(this)
         v.rank_btn.setOnClickListener(this)
 
-
         return v
-
     }
 
     override fun onClick(v: View?) {

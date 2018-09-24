@@ -16,6 +16,10 @@ interface NetworkService {
     @GET("places/{place_id}")
     fun getSpaceInfo(@Path("place_id") place_id : Int) : Call<GetSpaceResponse>
 
+    //순위조회
+    @GET("ranks")
+    fun getRankReview() : Call<GetRankReviewResponse>
+
     // 댓글 상세 조회
     @GET("comments/{comment_idx}")
     fun getMoreReview(@Path("comment_idx") idx : Int):Call<GetMoreReviewResponse>
