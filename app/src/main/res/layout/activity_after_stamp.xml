@@ -12,13 +12,14 @@
         android:background="#ffffff"
         android:layout_height="56dp">
         <TextView
+            android:id="@+id/after_title_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="18sp"
             android:textColor="#000000"
             android:layout_centerInParent="true"
             android:textStyle="bold"
-            android:text="덕수궁돌담길" />
+            android:text="장소 이름" />
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
@@ -42,12 +43,99 @@
             android:src="@color/colorPrimary"
             android:layout_centerHorizontal="true"/>
         <View
-            android:layout_width="280dp"
+            android:id="@+id/after_line_view"
+            android:layout_width="279dp"
             android:layout_height="1dp"
             android:layout_centerHorizontal="true"
             android:layout_below="@+id/after_stamp_circle"
             android:layout_marginTop="47dp"
             android:background="#5da9a9a9"/>
+        <LinearLayout
+            android:layout_width="279dp"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_below="@+id/after_line_view"
+            android:layout_centerHorizontal="true">
+            <RelativeLayout
+                android:layout_width="93dp"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/after_tcate_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="11dp"
+                    android:textSize="12sp"
+                    android:textColor="#434343"
+                    android:text="카테고리" />
+                <TextView
+                    android:id="@+id/after_cate_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/after_tcate_tv"
+                    android:layout_marginTop="5dp"
+                    android:textSize="13sp"
+                    android:textColor="#434343"
+                    android:textStyle="bold"
+                    android:layout_centerHorizontal="true"/>
+            </RelativeLayout>
+            <View
+                android:layout_width="1dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="25dp"
+                android:background="#5da9a9a9"/>
+            <RelativeLayout
+                android:layout_width="93dp"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/after_trank_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="11dp"
+                    android:textSize="12sp"
+                    android:textColor="#434343"
+                    android:text="이번주 순위" />
+                <TextView
+                    android:id="@+id/after_rank_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/after_trank_tv"
+                    android:layout_marginTop="5dp"
+                    android:textSize="13sp"
+                    android:textColor="#434343"
+                    android:textStyle="bold"
+                    android:layout_centerHorizontal="true"/>
+            </RelativeLayout>
+            <View
+                android:layout_width="1dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="25dp"
+                android:background="#5da9a9a9"/>
+            <RelativeLayout
+                android:layout_width="93dp"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/after_tdate_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="11dp"
+                    android:textSize="12sp"
+                    android:textColor="#434343"
+                    android:text="적립날짜" />
+                <TextView
+                    android:id="@+id/after_date_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/after_tdate_tv"
+                    android:layout_marginTop="5dp"
+                    android:textSize="13sp"
+                    android:textColor="#434343"
+                    android:textStyle="bold"
+                    android:layout_centerHorizontal="true"/>
+            </RelativeLayout>
+        </LinearLayout>
     </RelativeLayout>
     <Button
         android:layout_width="220dp"
@@ -69,12 +157,12 @@
             android:id="@+id/after_mark_iv"
             android:layout_width="12dp"
             android:layout_height="12dp"
+            android:layout_alignBottom="@+id/after_first_tv"
             android:background="@drawable/question_mark"/>
         <TextView
             android:id="@+id/after_first_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/after_mark_iv"
             android:layout_toRightOf="@+id/after_mark_iv"
             android:layout_marginLeft="3dp"
             android:textSize="12sp"

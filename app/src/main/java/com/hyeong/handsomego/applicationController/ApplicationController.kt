@@ -29,7 +29,4 @@ class ApplicationController : Application() {
                 .build()
         networkService = retrofit.create(NetworkService::class.java)
     }
-
-
-
 }
