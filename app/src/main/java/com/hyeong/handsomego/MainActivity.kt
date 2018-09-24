@@ -21,8 +21,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         when(v) {
             main_icon -> {
                 replaceFragment(HomeTabFragment())
-                main_icon.isSelected = false
-                qrcode_icon.isSelected = true
+                main_icon.isSelected = true
+                qrcode_icon.isSelected = false
                 mypage_icon.isSelected = false
             }
             qrcode_icon -> {

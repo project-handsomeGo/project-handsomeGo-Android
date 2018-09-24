@@ -69,6 +69,36 @@ class MypageTabFragment : Fragment(), View.OnClickListener {
             }
         })
 
+        val stamp_recycler : RecyclerView = view!!.findViewById(R.id.stamp_recycler)
+
+        stampItem = ArrayList()
+        stampItem.add(StampItem(R.drawable.stamp_doldamgil_gray))
+        stampItem.add(StampItem(R.drawable.stamp_culturestocking_gray))
+        stampItem.add(StampItem(R.drawable.stamp_underbunker_gray))
+        stampItem.add(StampItem(R.drawable.stamp_gyeongchun_gray))
+        stampItem.add(StampItem(R.drawable.stamp_bongjae_gray))
+        stampItem.add(StampItem(R.drawable.stamp_50_plus_gray))
+        stampItem.add(StampItem(R.drawable.stamp_hamsangpark_gray))
+        stampItem.add(StampItem(R.drawable.stamp_seoulgarden_gray))
+        stampItem.add(StampItem(R.drawable.stamp_newplaza_gray))
+        stampItem.add(StampItem(R.drawable.stamp_hasudo))
+        stampItem.add(StampItem(R.drawable.stamp_biohub_gray))
+        stampItem.add(StampItem(R.drawable.stamp_carindustry))
+        stampItem.add(StampItem(R.drawable.stamp_innohub_gray))
+        stampItem.add(StampItem(R.drawable.stamp_innopark_gray))
+        stampItem.add(StampItem(R.drawable.stamp_seoulscience_gray))
+        stampItem.add(StampItem(R.drawable.stamp_entrepreneurshiphub))
+        stampItem.add(StampItem(R.drawable.stamp_seoullo_gray))
+        stampItem.add(StampItem(R.drawable.stamp_donuimun_gray))
+        stampItem.add(StampItem(R.drawable.stamp_seoulbiennale_gray))
+        stampItem.add(StampItem(R.drawable.stamp_sewoon_gray))
+
+
+        stampAdapter = StampAdapter(stampItem, context!!)
+        stamp_recycler.layoutManager = GridLayoutManager(context,4)
+        stamp_recycler.adapter = stampAdapter
+
+
         val getStampInfoResponse = networkService.getStampInfo(Token.token)
         getStampInfoResponse.enqueue(object : Callback<GetStampInfoResponse> {
             override fun onFailure(call: Call<GetStampInfoResponse>?, t: Throwable?) {
@@ -76,36 +106,35 @@ class MypageTabFragment : Fragment(), View.OnClickListener {
 
             override fun onResponse(call: Call<GetStampInfoResponse>?, response: Response<GetStampInfoResponse>?) {
                 if(response!!.isSuccessful){
+                    val stampImgs :ArrayList<Int> = arrayListOf(
+                            R.drawable.stamp_doldamgil_big,
+                            R.drawable.stamp_culturestocking_big,
+                            R.drawable.stamp_underbunker_big,
+                            R.drawable.stamp_gyeongchun_big,
+                            R.drawable.stamp_bongjae_big,
+                            R.drawable.stamp_50_plus_big,
+                            R.drawable.stamp_hamsangpark_big,
+                            R.drawable.stamp_seoulgarden_big,
+                            R.drawable.stamp_newplaza_big,
+                            R.drawable.stamp_hasudo_big,
+                            R.drawable.stamp_biohub_big,
+                            R.drawable.stamp_carindustry_big,
+                            R.drawable.stamp_innohub_big,
+                            R.drawable.stamp_innopark_big,
+                            R.drawable.stamp_seoulscience_big,
+                            R.drawable.stamp_entrepreneurshiphub_big,
+                            R.drawable.stamp_seoullo_big,
+                            R.drawable.stamp_donuimun_big,
+                            R.drawable.stamp_seoulbiennale_big,
+                            R.drawable.stamp_sewoon_big
+                    )
+                    for(i in 0..19){
+                        if(response.body().data.place[i].stamp_status==1)
+                            stampItem[i]= StampItem(stampImgs[i])
+                    }
+                    stamp_recycler.adapter = stampAdapter
                 }
             }
         })
-        val stamp_recycler : RecyclerView = view!!.findViewById(R.id.stamp_recycler)
-
-        stampItem = ArrayList()
-        stampItem.add(StampItem(R.drawable.brown))
-        stampItem.add(StampItem(R.drawable.brown))
-        stampItem.add(StampItem(R.drawable.brown))
-        stampItem.add(StampItem(R.drawable.brown))
-        stampItem.add(StampItem(R.drawable.brown))
-        stampItem.add(StampItem(R.drawable.brown))
-        stampItem.add(StampItem(R.drawable.brown))
-        stampItem.add(StampItem(R.drawable.brown))
-        stampItem.add(StampItem(R.drawable.brown))
-        stampItem.add(StampItem(R.drawable.brown))
-        stampItem.add(StampItem(R.drawable.brown))
-        stampItem.add(StampItem(R.drawable.brown))
-        stampItem.add(StampItem(R.drawable.brown))
-        stampItem.add(StampItem(R.drawable.brown))
-        stampItem.add(StampItem(R.drawable.brown))
-        stampItem.add(StampItem(R.drawable.brown))
-        stampItem.add(StampItem(R.drawable.brown))
-        stampItem.add(StampItem(R.drawable.brown))
-        stampItem.add(StampItem(R.drawable.brown))
-        stampItem.add(StampItem(R.drawable.brown))
-
-
-        stampAdapter = StampAdapter(stampItem, context!!)
-        stamp_recycler.layoutManager = GridLayoutManager(context,5)
-        stamp_recycler.adapter = stampAdapter
     }
 }

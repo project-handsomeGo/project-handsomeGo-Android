@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.WindowManager
 import com.bumptech.glide.Glide
+import com.bumptech.glide.RequestManager
 import com.hyeong.handsomego.Idx
 import com.hyeong.handsomego.R
 import com.hyeong.handsomego.Token
@@ -21,9 +22,11 @@ import retrofit2.Response
 
 class SimpleInfoActivity : AppCompatActivity() {
     var networkService : NetworkService= ApplicationController.instance.networkService
+    lateinit var requestManager : RequestManager
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_simple_info)
+        requestManager = Glide.with(this)
         // Full Screen
         window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
         window.statusBarColor = Color.TRANSPARENT
@@ -40,7 +43,7 @@ class SimpleInfoActivity : AppCompatActivity() {
                     simple_address_tv.text = response.body().data.place_address
                     simple_info_tv.text = response.body().data.place_content
                     simple_review_tv.text = response.body().data.commentCount.toString()
-                    Glide.with(this@SimpleInfoActivity).load(response.body().data.place_pic).into(simple_img_iv)
+                    requestManager.load(response.body().data.place_pic).into(simple_img_iv)
                 }
             }
         })
