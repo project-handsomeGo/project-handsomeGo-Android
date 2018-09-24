@@ -138,6 +138,7 @@
         </LinearLayout>
     </RelativeLayout>
     <Button
+        android:id="@+id/after_goto_btn"
         android:layout_width="220dp"
         android:layout_height="42dp"
         android:layout_below="@+id/after_card_relative"

@@ -51,6 +51,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         mypage_icon.setOnClickListener(this)
 
         main_icon.isSelected = true
+
+        if(GoMyPage.flag){
+            mypage_icon.callOnClick()
+        }
     }
 
     //Fragment 붙이는 함수
