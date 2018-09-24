@@ -7,8 +7,8 @@
     android:layout_marginBottom="13dp">
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="62dp"
+        android:layout_height="62dp"
         android:src="#000fff"
         android:id="@+id/stamp_img"/>
 

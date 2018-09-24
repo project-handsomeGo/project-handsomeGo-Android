@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.bumptech.glide.Glide
 import com.hyeong.handsomego.R
 
 
@@ -22,7 +23,11 @@ class StampAdapter (private var stampItem : ArrayList<StampItem>, val context : 
     override fun getItemCount(): Int  = stampItem.size
 
     override fun onBindViewHolder(holder: StampViewholder, position: Int) {
-       holder!!.stampImg.setImageResource(stampItem[position].stamp)
+        if(stampItem[position].url!=null){
+            Glide.with(context).load(stampItem[position].url).into(holder!!.stampImg)
+        }else {
+            holder!!.stampImg.setImageResource(stampItem[position].stamp)
+        }
     }
 
 }
