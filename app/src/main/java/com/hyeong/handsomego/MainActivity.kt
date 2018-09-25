@@ -44,16 +44,16 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        addFragment(HomeTabFragment())
-
         main_icon.setOnClickListener(this)
         qrcode_icon.setOnClickListener(this)
         mypage_icon.setOnClickListener(this)
 
-        main_icon.isSelected = true
-
         if(GoMyPage.flag){
-            mypage_icon.callOnClick()
+            addFragment(MypageTabFragment())
+            mypage_icon.isSelected = true
+        }else {
+            addFragment(HomeTabFragment())
+            main_icon.isSelected = true
         }
     }
 
