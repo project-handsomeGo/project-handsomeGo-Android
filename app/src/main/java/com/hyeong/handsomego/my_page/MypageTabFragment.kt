@@ -1,5 +1,6 @@
 package com.hyeong.handsomego.my_page
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.GridLayoutManager
@@ -9,6 +10,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
+import com.hyeong.handsomego.GoEdit
+import com.hyeong.handsomego.MainActivity
 import com.hyeong.handsomego.R
 import com.hyeong.handsomego.Token
 import com.hyeong.handsomego.applicationController.ApplicationController
@@ -28,6 +31,10 @@ class MypageTabFragment : Fragment(), View.OnClickListener {
     lateinit var  stampAdapter: StampAdapter
     override fun onClick(v: View?) {
         when (v) {
+            mypage_edit_iv -> {
+                GoEdit.flag = true
+                startActivity(Intent(context,MainActivity::class.java))
+            }
             stamp_more_btn -> {
                 mypage_stamp_relative.visibility = View.VISIBLE
                 stamp_nomore_btn.visibility = View.VISIBLE
@@ -49,8 +56,10 @@ class MypageTabFragment : Fragment(), View.OnClickListener {
     override fun onStart() {
         super.onStart()
 
+        mypage_edit_iv.setOnClickListener(this)
         stamp_more_btn.setOnClickListener(this)
         stamp_nomore_btn.setOnClickListener(this)
+        val requestManager = Glide.with(context)
 
         val networkService = ApplicationController.instance.networkService
 
@@ -61,7 +70,7 @@ class MypageTabFragment : Fragment(), View.OnClickListener {
 
             override fun onResponse(call: Call<GetMypageResponse>?, response: Response<GetMypageResponse>?) {
                 if(response!!.isSuccessful){
-                    Glide.with(context).load(response.body().data.picture).into(mypage_profile_circle)
+                    requestManager.load(response.body().data.picture).into(mypage_profile_circle)
                     mypage_nickname_tv.text = response.body().data.name
                     mypage_date_tv.text = response.body().data.lastStampDate.substring(0,10).replace("-",".")
                     mypage_count_tv.text = response.body().data.stampCount.toString()+"/20"

@@ -9,6 +9,7 @@ import android.view.View
 import android.widget.ImageView
 import com.google.zxing.integration.android.IntentIntegrator
 import com.hyeong.handsomego.home.HomeTabFragment
+import com.hyeong.handsomego.my_page.EditMypageFragment
 import com.hyeong.handsomego.my_page.MypageTabFragment
 import com.hyeong.handsomego.qr_code.QRcodeTabFragment
 import kotlinx.android.synthetic.main.activity_main.*
@@ -48,9 +49,14 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         qrcode_icon.setOnClickListener(this)
         mypage_icon.setOnClickListener(this)
 
-        if(GoMyPage.flag){
+        if(GoMyPage.flag) {
             addFragment(MypageTabFragment())
             mypage_icon.isSelected = true
+            GoMyPage.flag = false
+        }else if(GoEdit.flag){
+            addFragment(EditMypageFragment())
+            mypage_icon.isSelected = true
+            GoEdit.flag = false
         }else {
             addFragment(HomeTabFragment())
             main_icon.isSelected = true
