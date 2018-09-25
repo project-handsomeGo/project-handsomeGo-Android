@@ -1,17 +1,12 @@
 package com.hyeong.handsomego.applicationController
 
 
-import com.hyeong.handsomego.get.GetMoreReviewResponse
-import com.hyeong.handsomego.get.GetPlaceInfoResponse
-import com.hyeong.handsomego.get.GetStampInfoResponse
-import com.hyeong.handsomego.get.GetStampPlaceResponse
-import com.hyeong.handsomego.post.PostStampPlaceResponse
+import com.hyeong.handsomego.post.*
 import com.hyeong.handsomego.get.*
+import com.hyeong.handsomego.put.*
+import okhttp3.RequestBody
 import retrofit2.Call
-import retrofit2.http.GET
-import retrofit2.http.Header
-import retrofit2.http.POST
-import retrofit2.http.Path
+import retrofit2.http.*
 
 /**
  * Created by HYEON on 2018-09-19.
@@ -41,6 +36,10 @@ interface NetworkService {
     // 마이페이지 조회
     @GET("mypage")
     fun getMypage(@Header("Authorization") token : String) : Call<GetMypageResponse>
+
+    // 마이페이지 수정
+    @PUT("mypage")
+    fun putMypage(@Header("Authorization") token : String, @Body edit : PutEditResponseData) : Call<PutEditResponse>
 
     // 스탬프 조회
     @GET("stamps")

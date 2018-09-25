@@ -16,6 +16,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="30dp"
         android:layout_centerHorizontal="true"
+        android:elevation="3dp"
         android:background="#FFFFFF"
         >
 
@@ -34,7 +35,7 @@
             android:layout_marginLeft="15dp"
             android:layout_marginTop="15dp"
             android:layout_toRightOf="@+id/map_img"
-            android:text="덕수궁 돌담길"
+            tools:text="덕수궁 돌담길"
             android:textSize="16dp" />
 
         <TextView
@@ -44,7 +45,7 @@
             android:layout_below="@+id/map_space_name"
             android:layout_marginLeft="15dp"
             android:layout_toRightOf="@+id/map_img"
-            android:text="서울 중구 정동"
+            tools:text="서울 중구 정동"
             android:textSize="11dp" />
 
         <TextView
@@ -55,21 +56,20 @@
             android:layout_marginLeft="15dp"
             android:layout_marginTop="2dp"
             android:layout_toRightOf="@+id/map_img"
-            android:text="4.1"
+            tools:text="4.1"
             android:textSize="18dp" />
 
         <RatingBar
             android:id="@+id/star_rating"
-            style="?android:ratingBarStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="70dp"
             android:layout_marginTop="45dp"
-            android:isIndicator="true"
-            android:numStars="5"
-            android:stepSize="1"
             android:scaleX="0.5"
             android:scaleY="0.5"
+            android:numStars="5"
+            android:rating="3"
+            android:isIndicator="true"
             />
 
     </RelativeLayout>
