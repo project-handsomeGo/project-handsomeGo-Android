@@ -3,7 +3,7 @@ package com.hyeong.handsomego.get
 data class GetReviewResponseData (
         var message : String,
         var status : String,
-        var myComment : String?,
+        var myComment : ArrayList<GetReviewResponseData2>,
         var comments : ArrayList<GetReviewResponseData2>
 )
 

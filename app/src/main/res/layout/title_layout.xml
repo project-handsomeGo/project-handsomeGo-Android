@@ -11,4 +11,11 @@
         android:textStyle="bold"
         android:textColor="#000000"
         android:textSize="18sp"/>
+    <View
+        android:id="@+id/detail_line_view"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:visibility="invisible"
+        android:layout_alignParentBottom="true"
+        android:background="#eeeeee"/>
 </RelativeLayout>

@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.AppBarLayout
 import android.support.v7.app.ActionBar
+import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
 import android.view.View
 import com.bumptech.glide.Glide
@@ -15,9 +16,7 @@ import com.hyeong.handsomego.R
 import com.hyeong.handsomego.Token
 import com.hyeong.handsomego.applicationController.ApplicationController
 import com.hyeong.handsomego.applicationController.NetworkService
-import com.hyeong.handsomego.get.GetMypageResponse
-import com.hyeong.handsomego.get.GetPlaceInfoResponse
-import com.hyeong.handsomego.get.GetReviewResponse
+import com.hyeong.handsomego.get.*
 import kotlinx.android.synthetic.main.activity_detail.*
 import kotlinx.android.synthetic.main.title_layout.*
 import retrofit2.Call
@@ -25,8 +24,10 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class DetailActivity : AppCompatActivity() {
-    var networkService : NetworkService = ApplicationController.instance.networkService
     lateinit var requestManager : RequestManager
+    lateinit var detailAdapter : DetailAdapter
+    var networkService : NetworkService = ApplicationController.instance.networkService
+    var comments : ArrayList<GetReviewResponseData2> = ArrayList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -98,18 +99,54 @@ class DetailActivity : AppCompatActivity() {
                     if(response.body().data.message == "로그인 해주세요."){
                         detail_rate_relative.visibility = View.GONE
                     }else{
-                        detail_rate_tv.text = Info.name + "님 평가해주세요."
-                        if(response.body().data.status == "스탬프를 먼저 찍어주세요."){
-                            detail_rate_rating.visibility = View.GONE
-                            detail_stamp_btn.visibility = View.VISIBLE
+                        if(response.body().data.myComment==null) {
+                            detail_rate_tv.text = Info.name + "님 평가해주세요."
+                            if (response.body().data.status == "스탬프를 먼저 찍어주세요.") {
+                                detail_rate_rating.visibility = View.GONE
+                                detail_stamp_btn.visibility = View.VISIBLE
+                            }
+                        }else{
+                            detail_user_rating_relative.visibility = View.GONE
+                            detail_entire_relative.visibility = View.VISIBLE
+                            // myComment 등록
+                            setMyComment(response.body().data.myComment)
                         }
                     }
                     // 리뷰 "최대" 3개 가져오기
+                    comments = response.body().data.comments
+                    detailAdapter = DetailAdapter(comments, requestManager)
+                    detail_reviews_recycler.layoutManager = LinearLayoutManager(this@DetailActivity)
+                    detail_reviews_recycler.adapter = detailAdapter
                 }
             }
         })
     }
     fun dpToPx(dp: Float, context: Context): Float {
         return (dp * context.resources.displayMetrics.density)
+    }
+    fun setMyComment(data : ArrayList<GetReviewResponseData2>){
+        detail_nickname_tv.text = data[0].writer_name
+        detail_date_tv.text = data[0].comment_date.substring(0, 10).replace("-", ".")
+        detail_rating_rating.rating = data[0].comment_star.toFloat()
+        detail_content_tv.text = data[0].comment_comment
+        if (data[0].comment_pic1 != null) {
+            detail_img1_iv.visibility = View.VISIBLE
+            requestManager.load(data[0].comment_pic1).into(detail_img1_iv)
+        }
+
+        if (data[0].comment_pic2 != null) {
+            detail_img2_iv.visibility = View.VISIBLE
+            requestManager.load(data[0].comment_pic2).into(detail_img2_iv)
+        }
+
+        if (data[0].comment_pic3 != null) {
+            detail_img3_iv.visibility = View.VISIBLE
+            requestManager.load(data[0].comment_pic3).into(detail_img3_iv)
+        }
+
+        if (data[0].comment_pic4 != null) {
+            detail_img4_iv.visibility = View.VISIBLE
+            requestManager.load(data[0].comment_pic4).into(detail_img4_iv)
+        }
     }
 }
