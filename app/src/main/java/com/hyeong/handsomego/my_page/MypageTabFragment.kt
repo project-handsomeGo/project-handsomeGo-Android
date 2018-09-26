@@ -10,10 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
-import com.hyeong.handsomego.GoEdit
-import com.hyeong.handsomego.MainActivity
-import com.hyeong.handsomego.R
-import com.hyeong.handsomego.Token
+import com.hyeong.handsomego.*
 import com.hyeong.handsomego.applicationController.ApplicationController
 import com.hyeong.handsomego.get.GetMypageResponse
 import com.hyeong.handsomego.get.GetStampInfoResponse
@@ -72,6 +69,7 @@ class MypageTabFragment : Fragment(), View.OnClickListener {
                 if(response!!.isSuccessful){
                     requestManager.load(response.body().data.picture).into(mypage_profile_circle)
                     mypage_nickname_tv.text = response.body().data.name
+                    Info.name = mypage_nickname_tv.text.toString()
                     mypage_date_tv.text = response.body().data.lastStampDate.substring(0,10).replace("-",".")
                     mypage_count_tv.text = response.body().data.stampCount.toString()+"/20"
                 }

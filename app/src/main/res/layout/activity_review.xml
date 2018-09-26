@@ -57,8 +57,7 @@
                     android:layout_below="@+id/reviewing_rate_tv"
                     android:layout_centerHorizontal="true"
                     android:isIndicator="false"
-                    android:stepSize="0.5"
-                    android:rating="4"/>
+                    android:stepSize="1"/>
             </RelativeLayout>
             <RelativeLayout
                 android:id="@+id/reviewing_upload_relative"
@@ -85,25 +84,36 @@
                     android:layout_height="76dp"
                     android:layout_below="@+id/reviewing_upload_tv">
                     <ImageView
+                        android:id="@+id/reviewing_img1_iv"
                         android:layout_width="76dp"
                         android:layout_height="76dp"
                         android:layout_marginRight="4dp"
-                        android:src="@color/colorOrange"/>
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/add_photo"/>
                     <ImageView
+                        android:id="@+id/reviewing_img2_iv"
                         android:layout_width="76dp"
                         android:layout_height="76dp"
                         android:layout_marginRight="4dp"
-                        android:src="@color/colorOrange"/>
+                        android:visibility="gone"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/add_photo"/>
                     <ImageView
+                        android:id="@+id/reviewing_img3_iv"
                         android:layout_width="76dp"
                         android:layout_height="76dp"
                         android:layout_marginRight="4dp"
-                        android:src="@color/colorOrange"/>
+                        android:visibility="gone"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/add_photo"/>
                     <ImageView
+                        android:id="@+id/reviewing_img4_iv"
                         android:layout_width="76dp"
                         android:layout_height="76dp"
                         android:layout_marginRight="4dp"
-                        android:src="@color/colorOrange"/>
+                        android:visibility="gone"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/add_photo"/>
                 </LinearLayout>
             </RelativeLayout>
             <RelativeLayout
@@ -125,6 +135,7 @@
                     android:layout_marginBottom="8dp"
                     android:text="간단 리뷰" />
                 <EditText
+                    android:id="@+id/reviewing_content_et"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:textSize="13sp"
@@ -136,6 +147,7 @@
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
     <Button
+        android:id="@+id/reviewing_confirm_btn"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:background="@color/colorPrimary"

@@ -13,6 +13,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.bumptech.glide.RequestManager
+import com.hyeong.handsomego.Info
 import com.hyeong.handsomego.R
 import com.hyeong.handsomego.Token
 import com.hyeong.handsomego.applicationController.ApplicationController
@@ -46,8 +47,10 @@ class EditMypageFragment : Fragment(), View.OnClickListener {
                     }
 
                     override fun onResponse(call: Call<PutEditResponse>?, response: Response<PutEditResponse>?) {
-                        if (response!!.isSuccessful)
-                            Toast.makeText(context,"닉네임 변경 완료",Toast.LENGTH_LONG).show()
+                        if (response!!.isSuccessful) {
+                            Toast.makeText(context, "닉네임 변경 완료", Toast.LENGTH_LONG).show()
+                            Info.name = edit_nickname_et.text.toString()
+                        }
                     }
                 })
             }
