@@ -29,6 +29,13 @@
             android:layout_height="100dp"
             android:layout_centerHorizontal="true"
             android:layout_margin="12dp" />
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/edit_change_circle"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerHorizontal="true"
+            android:visibility="invisible"
+            android:layout_margin="12dp" />
 
         <ImageView
             android:id="@+id/edit_pic_iv"
