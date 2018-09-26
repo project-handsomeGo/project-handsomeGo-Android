@@ -68,7 +68,6 @@
             android:scaleX="0.5"
             android:scaleY="0.5"
             android:numStars="5"
-            android:rating="3"
             android:isIndicator="true"
             />
 
