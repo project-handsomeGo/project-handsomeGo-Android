@@ -194,7 +194,7 @@
                         android:layout_height="22dp"
                         android:layout_alignParentRight="true"
                         android:layout_marginRight="7dp"
-                        android:background="@color/colorPrimaryDark"/>
+                        android:background="@drawable/delete"/>
                     <RatingBar
                         android:id="@+id/detail_rating_rating"
                         android:layout_width="wrap_content"

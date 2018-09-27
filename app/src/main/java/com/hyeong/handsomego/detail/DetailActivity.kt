@@ -1,13 +1,14 @@
 package com.hyeong.handsomego.detail
 
 import android.content.Context
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.AppBarLayout
 import android.support.v7.app.ActionBar
 import android.support.v7.widget.LinearLayoutManager
-import android.util.Log
 import android.view.View
+import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.bumptech.glide.RequestManager
 import com.hyeong.handsomego.Idx
@@ -17,6 +18,8 @@ import com.hyeong.handsomego.Token
 import com.hyeong.handsomego.applicationController.ApplicationController
 import com.hyeong.handsomego.applicationController.NetworkService
 import com.hyeong.handsomego.get.*
+import com.hyeong.handsomego.more_review.MoreReviewActivity
+import com.hyeong.handsomego.post.PostReviewResponse
 import kotlinx.android.synthetic.main.activity_detail.*
 import kotlinx.android.synthetic.main.title_layout.*
 import retrofit2.Call
@@ -52,6 +55,11 @@ class DetailActivity : AppCompatActivity() {
             }
         }
         detail_appbar.addOnOffsetChangedListener(listener)
+
+        // 리뷰 더보기 클릭 리스너
+        detail_more_iv.setOnClickListener { v ->
+            startActivity(Intent(this, MoreReviewActivity::class.java))
+        }
 
         // 닉네임 가져오기 위한 통신
         val getMypageResponse = networkService.getMypage(Token.token)
@@ -91,7 +99,6 @@ class DetailActivity : AppCompatActivity() {
         val getReviewResponse = networkService.getReview(Token.token, Idx.place_id)
         getReviewResponse.enqueue(object : Callback<GetReviewResponse>{
             override fun onFailure(call: Call<GetReviewResponse>?, t: Throwable?) {
-                Log.d("asd",t.toString())
             }
 
             override fun onResponse(call: Call<GetReviewResponse>?, response: Response<GetReviewResponse>?) {
@@ -110,6 +117,24 @@ class DetailActivity : AppCompatActivity() {
                             detail_entire_relative.visibility = View.VISIBLE
                             // myComment 등록
                             setMyComment(response.body().data.myComment)
+
+                            // 리뷰 삭제 통신
+                            detail_delete_iv.setOnClickListener { v ->
+                                val delReviewResponse = networkService.delReview(Token.token,response.body().data.myComment[0].comment_id)
+                                delReviewResponse.enqueue(object : Callback<PostReviewResponse>{
+                                    override fun onFailure(call: Call<PostReviewResponse>?, t: Throwable?) {
+                                    }
+
+                                    override fun onResponse(call: Call<PostReviewResponse>?, response: Response<PostReviewResponse>?) {
+                                        if(response!!.isSuccessful){
+                                            Toast.makeText(applicationContext,"리뷰 삭제 완료", Toast.LENGTH_LONG).show()
+                                            detail_rate_tv.text = Info.name + "님 평가해주세요."
+                                            detail_user_rating_relative.visibility = View.VISIBLE
+                                            detail_entire_relative.visibility = View.GONE
+                                        }
+                                    }
+                                })
+                            }
                         }
                     }
                     // 리뷰 "최대" 3개 가져오기
