@@ -6,7 +6,7 @@ data class GetPlaceInfoResponseData (
         var place_address : String,
         var place_content : String,
         var place_category : String,
-        var place_star : Int,
+        var place_star : Float,
         var place_pic : String,
         var commentCount : Int
 )

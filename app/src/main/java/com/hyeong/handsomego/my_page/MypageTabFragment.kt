@@ -109,6 +109,7 @@ class MypageTabFragment : Fragment(), View.OnClickListener {
         val getStampInfoResponse = networkService.getStampInfo(Token.token)
         getStampInfoResponse.enqueue(object : Callback<GetStampInfoResponse> {
             override fun onFailure(call: Call<GetStampInfoResponse>?, t: Throwable?) {
+                Log.d("asd",t.toString())
             }
 
             override fun onResponse(call: Call<GetStampInfoResponse>?, response: Response<GetStampInfoResponse>?) {

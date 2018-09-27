@@ -21,7 +21,15 @@ interface NetworkService {
     @POST("comments")
     fun postReview(@Header("Authorization") token : String, @Body reviewData : PostReviewResponseData) : Call<PostReviewResponse>
 
-    // 댓글 상세 조회
+    // 댓글 삭제
+    @DELETE("comments/{comment_id}")
+    fun delReview(@Header("Authorization") token : String, @Path("comment_id") idx : Int) : Call<PostReviewResponse>    // 같은 response 형식이므로 이용
+
+    // 장소의 댓글들 조회
+    @GET("places/{place_id}/comments")          // 토큰 없을 시 게스트 로그인
+    fun getReview(@Header("Authorization") token : String?, @Path("place_id") idx : Int) : Call<GetReviewResponse>
+
+   // 댓글 상세 조회
     @GET("comments/{comment_idx}")
     fun getMoreReview(@Path("comment_idx") idx : Int):Call<GetMoreReviewResponse>
 

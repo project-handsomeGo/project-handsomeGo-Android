@@ -26,6 +26,7 @@
             android:layout_height="66dp"
             android:layout_centerVertical="true"
             android:layout_marginLeft="18dp"
+            android:scaleType="centerCrop"
             android:background="#FFFFFF" />
 
         <TextView
@@ -68,7 +69,6 @@
             android:scaleX="0.5"
             android:scaleY="0.5"
             android:numStars="5"
-            android:rating="3"
             android:isIndicator="true"
             />
 
