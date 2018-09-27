@@ -20,6 +20,7 @@ class HomeTabFragment : Fragment(), View.OnClickListener {
 
 
         addFragment(HomeTabMapFragment())
+        v.home_map_view.visibility = View.VISIBLE
 
         v.map_btn.setOnClickListener(this)
         v.rank_btn.setOnClickListener(this)
@@ -33,9 +34,13 @@ class HomeTabFragment : Fragment(), View.OnClickListener {
         when (v) {
             map_btn -> {
                 replaceFragment(HomeTabMapFragment())
+                home_map_view.visibility = View.VISIBLE
+                home_rank_view.visibility = View.INVISIBLE
             }
             rank_btn -> {
                 replaceFragment(HomeTabRankFragment())
+                home_map_view.visibility = View.INVISIBLE
+                home_rank_view.visibility = View.VISIBLE
             }
         }
     }

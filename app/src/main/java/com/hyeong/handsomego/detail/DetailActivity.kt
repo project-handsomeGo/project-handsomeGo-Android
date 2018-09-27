@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.support.design.widget.AppBarLayout
 import android.support.v7.app.ActionBar
 import android.support.v7.widget.LinearLayoutManager
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import com.bumptech.glide.Glide
@@ -78,6 +79,7 @@ class DetailActivity : AppCompatActivity() {
         val getPlaceInfoResponse = networkService.getPlaceInfo(Idx.place_id)
         getPlaceInfoResponse.enqueue(object : Callback<GetPlaceInfoResponse> {
             override fun onFailure(call: Call<GetPlaceInfoResponse>?, t: Throwable?) {
+                Log.d("asd",t.toString())
             }
 
             override fun onResponse(call: Call<GetPlaceInfoResponse>?, response: Response<GetPlaceInfoResponse>?) {
@@ -87,7 +89,7 @@ class DetailActivity : AppCompatActivity() {
                     detail_address_tv.text = response.body().data.place_address
                     detail_tag_tv.text = response.body().data.place_category.replace(" ","")
                     detail_explain_tv.text = response.body().data.place_content
-                    detail_avg_tv.text = response.body().data.place_star.toFloat().toString()
+                    detail_avg_tv.text = response.body().data.place_star.toString()
                     detail_avg_rating.rating = response.body().data.place_star.toFloat()
                     detail_count_tv.text = "리뷰 " + response.body().data.commentCount.toString() + "개"
                     requestManager.load(response.body().data.place_pic).into(detail_img_iv)
