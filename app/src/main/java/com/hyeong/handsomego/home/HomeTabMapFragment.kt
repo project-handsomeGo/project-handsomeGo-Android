@@ -1,6 +1,7 @@
 package com.hyeong.handsomego.home
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.util.Log
@@ -9,9 +10,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import com.bumptech.glide.Glide
+import com.hyeong.handsomego.Idx
 import com.hyeong.handsomego.R
 import com.hyeong.handsomego.applicationController.ApplicationController
 import com.hyeong.handsomego.applicationController.NetworkService
+import com.hyeong.handsomego.detail.DetailActivity
 import com.hyeong.handsomego.get.GetSpaceData
 import com.hyeong.handsomego.get.GetSpaceResponse
 import pl.polidea.view.ZoomView
@@ -136,6 +139,12 @@ class HomeTabMapFragment : Fragment(), View.OnClickListener {
         green2!!.setOnClickListener(this)
         green3!!.setOnClickListener(this)
         green4!!.setOnClickListener(this)
+        // zoomView 클릭시 팝업 해제를 위한 리스너
+        zoomView!!.setOnClickListener(this)
+        // 맨처음 뜨는 팝업 invisible
+        space_info_layout!!.visibility = View.GONE
+        // 팝업 클릭시 화면 전환을 위한 리스너
+        space_info_layout!!.setOnClickListener(this)
 
         //Rating Bar setting
         star_rating = v!!.findViewById<RatingBar>(R.id.star_rating)
@@ -226,20 +235,24 @@ class HomeTabMapFragment : Fragment(), View.OnClickListener {
                 isVisibleLayout()
                 getSpaceInfo(19)
             }
+            space_info_layout ->{
+                startActivity(Intent(context,DetailActivity::class.java))
+            }
+            else ->{
+                space_info_layout!!.visibility = View.GONE
+            }
         }
     }
 
     private fun isVisibleLayout() {
-        if(space_info_layout!!.visibility == View.VISIBLE)
-            space_info_layout!!.visibility = View.GONE
-        else {
-            space_info_layout!!.bringToFront()
-            space_info_layout!!.visibility = View.VISIBLE
-        }
+        space_info_layout!!.bringToFront()
+        space_info_layout!!.visibility = View.VISIBLE
     }
 
     fun getSpaceInfo(place_id : Int) {
         Log.v("dek","place_id : "+ place_id)
+        // 추후 화면 전환을 위한 id값 전달
+        Idx.place_id = place_id
         specificSpaceInfo.clear()
         val spaceInfobyIdResponse = networkService!!.getSpaceInfo(place_id)
         spaceInfobyIdResponse!!.enqueue(object : retrofit2.Callback<GetSpaceResponse> {
@@ -258,16 +271,10 @@ class HomeTabMapFragment : Fragment(), View.OnClickListener {
                                     response!!.body().data.commentCount))
 
                             Glide.with(this@HomeTabMapFragment).load(specificSpaceInfo[0].place_pic).into(map_img)
-                            map_space_name!!.setText(specificSpaceInfo[0].place_name)
-                            map_space_addr!!.setText(specificSpaceInfo[0].place_address)
-                            star_text!!.setText(specificSpaceInfo[0].place_star.toString())
-
-                            star_rating!!.onRatingBarChangeListener = RatingBar.OnRatingBarChangeListener { ratingBar, rating, fromUser ->
-                                //rateText!!.setText(raiting.toString())
-                                Log.v("dek",star_text!!.text.toString()+"star_text string value")
-                                TODO("raiting bar raiting")
-                                star_rating!!.rating = star_text!!.text.toString().toFloat()
-                            }
+                            map_space_name!!.text = specificSpaceInfo[0].place_name
+                            map_space_addr!!.text = specificSpaceInfo[0].place_address
+                            star_text!!.text = specificSpaceInfo[0].place_star.toString()
+                            star_rating!!.rating = specificSpaceInfo[0].place_star.toFloat()
 
                         }else{
                             Log.v("dek","data is null")

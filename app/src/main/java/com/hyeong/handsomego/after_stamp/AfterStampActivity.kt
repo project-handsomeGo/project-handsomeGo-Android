@@ -4,6 +4,7 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.bumptech.glide.Glide
+import com.bumptech.glide.RequestManager
 import com.hyeong.handsomego.*
 import com.hyeong.handsomego.applicationController.ApplicationController
 import com.hyeong.handsomego.applicationController.NetworkService
@@ -14,11 +15,13 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class AfterStampActivity : AppCompatActivity() {
-
     var networkService : NetworkService = ApplicationController.instance.networkService
+    lateinit var requestManager : RequestManager
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_after_stamp)
+
+        requestManager = Glide.with(this)
 
         // Get Stamp of Place Info
         val getPlacePlaceResponse = networkService.getStampPlace(Token.token, Idx.place_id)
@@ -32,14 +35,14 @@ class AfterStampActivity : AppCompatActivity() {
                     after_cate_tv.text = response.body().data.place_category
                     after_rank_tv.text = response.body().data.rank.toString()+"위"
                     after_date_tv.text = response.body().data.stamp_date.substring(0,10).replace("-",".")
-                    Glide.with(this@AfterStampActivity).load(response.body().data.place_pic).into(after_stamp_circle)
+                    requestManager.load(response.body().data.stamp_pic).into(after_stamp_circle)
                 }
             }
         })
 
         after_goto_btn.setOnClickListener { v ->
-            startActivity(Intent(applicationContext, MainActivity::class.java))
             GoMyPage.flag = true
+            startActivity(Intent(applicationContext, MainActivity::class.java))
         }
     }
 }

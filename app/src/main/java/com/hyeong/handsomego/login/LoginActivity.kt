@@ -12,8 +12,9 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(v: View?) {
         when(v) {
             into_kakao -> {
-                var intent1 : Intent = Intent(applicationContext,MainActivity::class.java)
-                startActivity(intent1)
+                into_kakao_real.performClick()
+//                var intent1 : Intent = Intent(applicationContext,MainActivity::class.java)
+//                startActivity(intent1)
             }
             into_guest -> {
                 var intent1 : Intent = Intent(applicationContext,MainActivity::class.java)

@@ -1,6 +1,7 @@
 package com.hyeong.handsomego.applicationController
 
 import android.app.Application
+import com.hyeong.handsomego.kakao.GlobalApplication
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -8,7 +9,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 /**
  * Created by HYEON on 2018-09-19.
  */
-class ApplicationController : Application() {
+class ApplicationController : GlobalApplication(){
     lateinit var networkService: NetworkService
     private val baseUrl = "http://bghgu.tk:3000/api/"
 

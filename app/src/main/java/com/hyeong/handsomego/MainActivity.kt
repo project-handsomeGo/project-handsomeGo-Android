@@ -9,6 +9,7 @@ import android.view.View
 import android.widget.ImageView
 import com.google.zxing.integration.android.IntentIntegrator
 import com.hyeong.handsomego.home.HomeTabFragment
+import com.hyeong.handsomego.my_page.EditMypageFragment
 import com.hyeong.handsomego.my_page.MypageTabFragment
 import com.hyeong.handsomego.qr_code.QRcodeTabFragment
 import kotlinx.android.synthetic.main.activity_main.*
@@ -21,8 +22,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         when(v) {
             main_icon -> {
                 replaceFragment(HomeTabFragment())
-                main_icon.isSelected = false
-                qrcode_icon.isSelected = true
+                main_icon.isSelected = true
+                qrcode_icon.isSelected = false
                 mypage_icon.isSelected = false
             }
             qrcode_icon -> {
@@ -44,16 +45,21 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        addFragment(HomeTabFragment())
-
         main_icon.setOnClickListener(this)
         qrcode_icon.setOnClickListener(this)
         mypage_icon.setOnClickListener(this)
 
-        main_icon.isSelected = true
-
-        if(GoMyPage.flag){
-            mypage_icon.callOnClick()
+        if(GoMyPage.flag) {
+            addFragment(MypageTabFragment())
+            mypage_icon.isSelected = true
+            GoMyPage.flag = false
+        }else if(GoEdit.flag){
+            addFragment(EditMypageFragment())
+            mypage_icon.isSelected = true
+            GoEdit.flag = false
+        }else {
+            addFragment(HomeTabFragment())
+            main_icon.isSelected = true
         }
     }
 

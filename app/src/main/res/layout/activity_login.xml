@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/login_bg"
-    android:gravity="center"
+    android:gravity="center|top"
     android:orientation="vertical"
     tools:context="com.hyeong.handsomego.login.LoginActivity">
 
     <ImageView
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_margin="10dp"
-        android:src="@drawable/brown"/>
+        android:layout_width="101dp"
+        android:layout_height="101dp"
+        android:layout_marginTop="135dp"
+        android:layout_marginBottom="35dp"
+        android:src="@drawable/login_logo"/>
 
     <LinearLayout
         android:id="@+id/into_kakao"
-        android:layout_width="280dp"
-        android:layout_height="50dp"
+        android:layout_width="230dp"
+        android:layout_height="47dp"
         android:background="@drawable/yellow_round_square"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="19dp"
         android:elevation="3dp"
         android:gravity="center">
 
@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="카카오 계정으로 로그인"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:textColor="#432a14"
             android:textStyle="bold" />
 
@@ -43,8 +43,8 @@
 
     <LinearLayout
         android:id="@+id/into_guest"
-        android:layout_width="280dp"
-        android:layout_height="50dp"
+        android:layout_width="230dp"
+        android:layout_height="47dp"
         android:elevation="3dp"
         android:background="@drawable/white_round_square"
         android:gravity="center">
@@ -53,12 +53,15 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
+            android:textSize="14sp"
             android:textColor="#74b9ff"
             android:text="게스트로 들어가기"
             />
     </LinearLayout>
 
-
-
+    <com.kakao.usermgmt.LoginButton
+        android:id="@+id/into_kakao_real"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"/>
 </LinearLayout>
