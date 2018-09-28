@@ -12,6 +12,9 @@ import retrofit2.http.*
  * Created by HYEON on 2018-09-19.
  */
 interface NetworkService {
+    // 로그인
+    @POST("login")
+    fun postLogin(@Body loginData : PostLoginData) : Call<PostLoginResponse>
 
     //특정 장소 정보 불러오기
     @GET("places/{place_id}")
