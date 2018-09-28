@@ -1,18 +1,23 @@
 package com.hyeong.handsomego.kakao
 
-import android.support.v4.content.ContextCompat
 import android.util.Log
+import com.hyeong.handsomego.Token
+import com.hyeong.handsomego.applicationController.ApplicationController
+import com.hyeong.handsomego.post.PostLoginData
+import com.hyeong.handsomego.post.PostLoginResponse
 import com.kakao.auth.ISessionCallback
 import com.kakao.network.ErrorResult
 import com.kakao.usermgmt.UserManagement
-import com.kakao.usermgmt.callback.LogoutResponseCallback
 import com.kakao.usermgmt.callback.MeResponseCallback
 import com.kakao.usermgmt.response.model.UserProfile
 import com.kakao.util.exception.KakaoException
-
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 
 class SessionCallback : ISessionCallback{
+    val networkService = ApplicationController.instance.networkService
     // 로그인에 실패
     override fun onSessionOpenFailed(exception: KakaoException?) {
     }
@@ -28,7 +33,19 @@ class SessionCallback : ISessionCallback{
                 val nickname = result!!.nickname
                 val profileImagePath = result.profileImagePath
                 val UUID = result.uuid
-                Log.d("asd",nickname+profileImagePath+UUID)
+
+                val postLoginResponse = networkService.postLogin(PostLoginData(UUID, nickname, profileImagePath))
+                postLoginResponse.enqueue(object : Callback<PostLoginResponse>{
+                    override fun onFailure(call: Call<PostLoginResponse>?, t: Throwable?) {
+                    }
+
+                    override fun onResponse(call: Call<PostLoginResponse>?, response: Response<PostLoginResponse>?) {
+                        if(response!!.isSuccessful) {
+                            Token.token = response.body().token!!
+                        }
+                    }
+
+                })
             }
 
             override fun onSessionClosed(errorResult: ErrorResult?) {
@@ -40,12 +57,4 @@ class SessionCallback : ISessionCallback{
             }
         })
     }
-//    fun logout(){
-//        val user : UserManagement = UserManagement.getInstance()
-//        user.requestLogout(object : LogoutResponseCallback(){
-//            override fun onCompleteLogout() {
-//                ContextCompat.startActivity()
-//            }
-//        })
-//    }
 }

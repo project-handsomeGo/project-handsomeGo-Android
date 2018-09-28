@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.ImageView
+import android.widget.Toast
 import com.google.zxing.integration.android.IntentIntegrator
 import com.hyeong.handsomego.home.HomeTabFragment
 import com.hyeong.handsomego.my_page.EditMypageFragment
@@ -27,16 +28,24 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 mypage_icon.isSelected = false
             }
             qrcode_icon -> {
-                replaceFragment(QRcodeTabFragment())
-                main_icon.isSelected = false
-                qrcode_icon.isSelected = true
-                mypage_icon.isSelected = false
+                if(Token.token==""){        // 게스트일시 차단
+                    Toast.makeText(this,"로그인 후 가능합니다.",Toast.LENGTH_LONG).show()
+                }else {
+                    replaceFragment(QRcodeTabFragment())
+                    main_icon.isSelected = false
+                    qrcode_icon.isSelected = true
+                    mypage_icon.isSelected = false
+                }
             }
             mypage_icon -> {
-                replaceFragment(MypageTabFragment())
-                main_icon.isSelected = false
-                qrcode_icon.isSelected = false
-                mypage_icon.isSelected = true
+                if(Token.token==""){        // 게스트일시 차단
+                    Toast.makeText(this,"로그인 후 가능합니다.",Toast.LENGTH_LONG).show()
+                }else {
+                    replaceFragment(MypageTabFragment())
+                    main_icon.isSelected = false
+                    qrcode_icon.isSelected = false
+                    mypage_icon.isSelected = true
+                }
             }
         }
     }

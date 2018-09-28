@@ -58,10 +58,4 @@
             android:text="게스트로 들어가기"
             />
     </LinearLayout>
-
-    <com.kakao.usermgmt.LoginButton
-        android:id="@+id/into_kakao_real"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="gone"/>
 </LinearLayout>
