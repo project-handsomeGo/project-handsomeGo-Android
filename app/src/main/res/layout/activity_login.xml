@@ -56,6 +56,7 @@
             android:textSize="14sp"
             android:textColor="#74b9ff"
             android:text="게스트로 들어가기"
+            android:textStyle="bold"
             />
     </LinearLayout>
 </LinearLayout>

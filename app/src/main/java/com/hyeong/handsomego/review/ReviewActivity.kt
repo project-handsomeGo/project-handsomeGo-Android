@@ -8,10 +8,7 @@ import android.util.Log
 import android.view.View
 import android.widget.RatingBar
 import android.widget.Toast
-import com.hyeong.handsomego.Idx
-import com.hyeong.handsomego.Info
-import com.hyeong.handsomego.R
-import com.hyeong.handsomego.Token
+import com.hyeong.handsomego.*
 import com.hyeong.handsomego.applicationController.ApplicationController
 import com.hyeong.handsomego.detail.DetailActivity
 import com.hyeong.handsomego.post.PostReviewResponse
@@ -55,11 +52,10 @@ class ReviewActivity : AppCompatActivity(), RatingBar.OnRatingBarChangeListener 
 
         // 등록하기 버튼 눌렀을 때
         reviewing_confirm_btn.setOnClickListener { v ->
-            val postReviewResponseData = PostReviewResponseData(Idx.place_id.toString(), reviewing_rate_rating.rating.toString(), reviewing_content_et.text.toString(),picItems)
+            val postReviewResponseData = PostReviewResponseData(Idx.place_id.toString(), reviewing_rate_rating.rating.toString(), reviewing_content_et.text.toString(), arrayListOf(Tmp.img1,Tmp.img2,Tmp.img3,Tmp.img4))
             val postReviewResponse = networkService.postReview(Token.token, postReviewResponseData)
             postReviewResponse.enqueue(object : Callback<PostReviewResponse>{
                 override fun onFailure(call: Call<PostReviewResponse>?, t: Throwable?) {
-                    Log.d("asd",t.toString())
                 }
 
                 override fun onResponse(call: Call<PostReviewResponse>?, response: Response<PostReviewResponse>?) {
@@ -79,20 +75,23 @@ class ReviewActivity : AppCompatActivity(), RatingBar.OnRatingBarChangeListener 
                         0 -> {
                             reviewing_img1_iv.setImageURI(data!!.data)
                             reviewing_img2_iv.visibility = View.VISIBLE
+                            Tmp.img1 = data!!.data.toString()
                         }
                         1 -> {
                             reviewing_img2_iv.setImageURI(data!!.data)
                             reviewing_img3_iv.visibility = View.VISIBLE
+                            Tmp.img2 = data!!.data.toString()
                         }
                         2 -> {
                             reviewing_img3_iv.setImageURI(data!!.data)
                             reviewing_img4_iv.visibility = View.VISIBLE
+                            Tmp.img3 = data!!.data.toString()
                         }
                         3 -> {
                             reviewing_img4_iv.setImageURI(data!!.data)
+                            Tmp.img4 = data!!.data.toString()
                         }
                     }
-                    picItems[tmp] = data!!.data.toString()
                 } catch (e: Exception) {
                     e.printStackTrace()
                 }

@@ -8,6 +8,7 @@ import android.support.design.widget.AppBarLayout
 import android.support.v7.app.ActionBar
 import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
+import android.view.MotionEvent
 import android.view.View
 import android.widget.Toast
 import com.bumptech.glide.Glide
@@ -21,6 +22,8 @@ import com.hyeong.handsomego.applicationController.NetworkService
 import com.hyeong.handsomego.get.*
 import com.hyeong.handsomego.more_review.MoreReviewActivity
 import com.hyeong.handsomego.post.PostReviewResponse
+import com.hyeong.handsomego.qr_code.CameraActivity
+import com.hyeong.handsomego.review.ReviewActivity
 import kotlinx.android.synthetic.main.activity_detail.*
 import kotlinx.android.synthetic.main.title_layout.*
 import retrofit2.Call
@@ -56,6 +59,19 @@ class DetailActivity : AppCompatActivity() {
             }
         }
         detail_appbar.addOnOffsetChangedListener(listener)
+
+        // 스탬프 찍기
+        detail_stamp_btn.setOnClickListener{
+            startActivity(Intent(this,CameraActivity::class.java))
+        }
+
+        // 리뷰하기
+        detail_rate_rating.setOnTouchListener { v, event ->
+            if(event.action == MotionEvent.ACTION_UP) {
+                startActivity(Intent(this, ReviewActivity::class.java))
+            }
+            true
+        }
 
         // 리뷰 더보기 클릭 리스너
         detail_more_iv.setOnClickListener { v ->
