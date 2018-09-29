@@ -9,7 +9,7 @@
     <application
         android:name=".applicationController.ApplicationController"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher_handsome"
+        android:icon="@drawable/handsomego_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -22,28 +22,31 @@
         <activity android:name=".MainActivity"/>
         <activity android:name=".detail.DetailActivity" />
         <activity android:name=".login.LoginActivity">
-
-        </activity>
-        <activity android:name=".review.ReviewActivity"/>
-        <activity android:name=".more_review.MoreReviewActivity"/>
-        <activity android:name=".after_stamp.AfterStampActivity" />
-        <activity android:name=".after_stamp.SimpleInfoActivity" />
-        <activity android:name=".qr_code.CameraActivity"/>
-        <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
-
-        <activity android:name=".qr.CaptureActivityAnyOrientation"
+        <activity android:name=".review.ReviewActivity"/>
+        <activity android:name=".more_review.MoreReviewActivity"/>
+        <activity android:name=".after_stamp.AfterStampActivity" />
+        <activity android:name=".after_stamp.SimpleInfoActivity" />
+        <activity android:name=".qr_code.CameraActivity" />
+        <activity android:name=".qr_code.CustomScannerActivity" />
+        <activity
+            android:name=".qr_code.AnyOrientationCaptureActivity"
             android:screenOrientation="fullSensor"
             android:stateNotNeeded="true"
             android:theme="@style/zxing_CaptureTheme"
-            android:windowSoftInputMode="stateAlwaysHidden"
-            />
+            android:windowSoftInputMode="stateAlwaysHidden"></activity>
+        <activity android:name=".splash.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
