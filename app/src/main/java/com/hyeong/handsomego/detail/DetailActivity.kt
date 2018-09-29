@@ -34,7 +34,7 @@ class DetailActivity : AppCompatActivity() {
     lateinit var requestManager : RequestManager
     lateinit var detailAdapter : DetailAdapter
     var networkService : NetworkService = ApplicationController.instance.networkService
-    var comments : ArrayList<GetReviewResponseData2> = ArrayList()
+    var commentArray : ArrayList<GetReviewResponseData2> = ArrayList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -156,10 +156,10 @@ class DetailActivity : AppCompatActivity() {
                         }
                     }
                     // 리뷰 "최대" 3개 가져오기
-                    if(comments.size > 3) {
-                        comments = ArrayList(response.body().data.comments.subList(0, 3))
+                    if(response.body().data.comments.size > 3) {
+                        commentArray = ArrayList(response.body().data.comments.subList(0, 3))
                     }
-                    detailAdapter = DetailAdapter(comments, requestManager)
+                    detailAdapter = DetailAdapter(commentArray, requestManager)
                     detail_reviews_recycler.layoutManager = LinearLayoutManager(this@DetailActivity)
                     detail_reviews_recycler.adapter = detailAdapter
                 }
