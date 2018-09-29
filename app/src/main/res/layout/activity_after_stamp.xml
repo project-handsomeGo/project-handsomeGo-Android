@@ -18,7 +18,7 @@
             android:textSize="18sp"
             android:textColor="#000000"
             android:layout_centerInParent="true"
-            android:textStyle="bold"
+            android:fontFamily="@font/nanumsquareround_b"
             android:text="장소 이름" />
         <View
             android:layout_width="match_parent"
@@ -67,6 +67,7 @@
                     android:layout_marginTop="11dp"
                     android:textSize="12sp"
                     android:textColor="#434343"
+                    android:fontFamily="@font/nanumsquareround_r"
                     android:text="카테고리" />
                 <TextView
                     android:id="@+id/after_cate_tv"
@@ -76,7 +77,7 @@
                     android:layout_marginTop="5dp"
                     android:textSize="13sp"
                     android:textColor="#434343"
-                    android:textStyle="bold"
+                    android:fontFamily="@font/nanumsquareround_b"
                     android:layout_centerHorizontal="true"/>
             </RelativeLayout>
             <View
@@ -95,6 +96,7 @@
                     android:layout_marginTop="11dp"
                     android:textSize="12sp"
                     android:textColor="#434343"
+                    android:fontFamily="@font/nanumsquareround_r"
                     android:text="이번주 순위" />
                 <TextView
                     android:id="@+id/after_rank_tv"
@@ -104,7 +106,7 @@
                     android:layout_marginTop="5dp"
                     android:textSize="13sp"
                     android:textColor="#434343"
-                    android:textStyle="bold"
+                    android:fontFamily="@font/nanumsquareround_b"
                     android:layout_centerHorizontal="true"/>
             </RelativeLayout>
             <View
@@ -123,6 +125,7 @@
                     android:layout_marginTop="11dp"
                     android:textSize="12sp"
                     android:textColor="#434343"
+                    android:fontFamily="@font/nanumsquareround_r"
                     android:text="적립날짜" />
                 <TextView
                     android:id="@+id/after_date_tv"
@@ -132,7 +135,7 @@
                     android:layout_marginTop="5dp"
                     android:textSize="13sp"
                     android:textColor="#434343"
-                    android:textStyle="bold"
+                    android:fontFamily="@font/nanumsquareround_b"
                     android:layout_centerHorizontal="true"/>
             </RelativeLayout>
         </LinearLayout>
@@ -146,6 +149,7 @@
         android:layout_marginTop="20dp"
         android:textSize="15sp"
         android:textColor="#ffffff"
+        android:fontFamily="@font/nanumsquareround_r"
         android:text="스탬프 적립내역 보러가기"
         android:background="@drawable/blue_round_square"/>
     <RelativeLayout
@@ -168,6 +172,7 @@
             android:layout_marginLeft="3dp"
             android:textSize="12sp"
             android:textColor="#000000"
+            android:fontFamily="@font/nanumsquareround_r"
             android:text="잘생긴 스탬프가 뭔가요?"
             />
         <TextView
@@ -178,6 +183,7 @@
             android:layout_marginTop="3dp"
             android:textSize="12sp"
             android:textColor="#4d4d4d"
+            android:fontFamily="@font/nanumsquareround_r"
             android:text="잘생긴 서울의 20 장소를 찾아 QR코드를 찍고 스탬프를 적립하여
 나만의 서울 기록을 만들어 보세요!"
             />

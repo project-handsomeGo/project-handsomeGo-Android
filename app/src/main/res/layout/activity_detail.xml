@@ -48,9 +48,11 @@
                     tools:text="덕수궁 돌담길"
                     android:textColor="#ffffff"
                     android:textSize="24sp"
-                    android:textStyle="bold"
-                    android:shadowColor="#40000000"
-                    android:shadowRadius="5.0"  />
+                    android:fontFamily="@font/nanumsquareround_b"
+                    android:shadowColor="#5d000000"
+                    android:shadowDx="2"
+                    android:shadowDy="2"
+                    android:shadowRadius="2" />
 
                 <TextView
                     android:id="@+id/detail_address_tv"
@@ -61,10 +63,13 @@
                     android:layout_marginLeft="19dp"
                     android:layout_marginTop="1dp"
                     tools:text="서울시 중구 어쩌구"
+                    android:fontFamily="@font/nanumsquareround_r"
                     android:textColor="#ffffff"
                     android:textSize="15sp"
-                    android:shadowColor="#40000000"
-                    android:shadowRadius="5.0"/>
+                    android:shadowColor="#5d000000"
+                    android:shadowDx="2"
+                    android:shadowDy="2"
+                    android:shadowRadius="2"/>
             </RelativeLayout>
             <android.support.v7.widget.Toolbar
                 android:id="@+id/detail_toolbar"
@@ -99,6 +104,7 @@
                     android:background="@drawable/orange_round_square"
                     android:textSize="12sp"
                     android:textColor="#ffffff"
+                    android:fontFamily="@font/nanumsquareround_r"
                     tools:text="역사문화"/>
                 <TextView
                     android:id="@+id/detail_explain_tv"
@@ -107,6 +113,7 @@
                     android:layout_below="@+id/detail_tag_tv"
                     android:textSize="13sp"
                     android:textColor="#000000"
+                    android:fontFamily="@font/nanumsquareround_r"
                     tools:text="덕수궁 돌담길은 어쩌구 저저구 어떤 내용으로"/>
             </RelativeLayout>
             <RelativeLayout
@@ -130,6 +137,7 @@
                         android:textAlignment="center"
                         android:textSize="14sp"
                         android:textColor="#000000"
+                        android:fontFamily="@font/nanumsquareround_r"
                         tools:text="최다예님 평가해주세요."/>
                     <LinearLayout
                         android:id="@+id/detail_rate_linear"
@@ -154,6 +162,7 @@
                         style="?android:attr/borderlessButtonStyle"
                         android:textSize="13sp"
                         android:textColor="#74b9ff"
+                        android:fontFamily="@font/nanumsquareround_r"
                         android:text="스탬프를 먼저 찍어주세요"
                         android:layout_centerHorizontal="true" />
                 </RelativeLayout>
@@ -175,6 +184,7 @@
                             android:textSize="13sp"
                             android:textColor="#303030"
                             android:layout_marginRight="7dp"
+                            android:fontFamily="@font/nanumsquareround_r"
                             tools:text="닉네임"/>
                         <View
                             android:id="@+id/detail_bar_view"
@@ -191,6 +201,7 @@
                             android:layout_marginLeft="7dp"
                             android:textSize="13sp"
                             android:textColor="#9b9b9b"
+                            android:fontFamily="@font/nanumsquareround_r"
                             tools:text="2018.07.12"/>
                     </RelativeLayout>
                     <ImageView
@@ -219,6 +230,7 @@
                         android:layout_marginTop="28dp"
                         android:textSize="12sp"
                         android:textColor="#444444"
+                        android:fontFamily="@font/nanumsquareround_r"
                         tools:text="내용"/>
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -273,6 +285,7 @@
                     android:textColor="#9b9b9b"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="11dp"
+                    android:fontFamily="@font/nanumsquareround_b"
                     android:text="4.3"/>
                 <RatingBar
                     android:id="@+id/detail_avg_rating"
@@ -296,6 +309,7 @@
                     android:layout_alignStart="@+id/detail_avg_rating"
                     android:layout_alignParentBottom="true"
                     android:layout_marginLeft="5dp"
+                    android:fontFamily="@font/nanumsquareround_r"
                     tools:text="리뷰 10개"
                     />
             </RelativeLayout>
@@ -333,6 +347,7 @@
                     android:textSize="12sp"
                     android:textColor="#797979"
                     android:layout_marginRight="5dp"
+                    android:fontFamily="@font/nanumsquareround_r"
                     android:text="리뷰 더보기"/>
             </RelativeLayout>
         </RelativeLayout>
