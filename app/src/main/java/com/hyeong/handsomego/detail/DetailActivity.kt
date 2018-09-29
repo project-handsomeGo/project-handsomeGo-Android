@@ -2,12 +2,12 @@ package com.hyeong.handsomego.detail
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.AppBarLayout
 import android.support.v7.app.ActionBar
 import android.support.v7.widget.LinearLayoutManager
-import android.util.Log
 import android.view.MotionEvent
 import android.view.View
 import android.widget.Toast
@@ -34,7 +34,7 @@ class DetailActivity : AppCompatActivity() {
     lateinit var requestManager : RequestManager
     lateinit var detailAdapter : DetailAdapter
     var networkService : NetworkService = ApplicationController.instance.networkService
-    var comments : ArrayList<GetReviewResponseData2> = ArrayList()
+    var commentArray : ArrayList<GetReviewResponseData2> = ArrayList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -95,11 +95,15 @@ class DetailActivity : AppCompatActivity() {
         val getPlaceInfoResponse = networkService.getPlaceInfo(Idx.place_id)
         getPlaceInfoResponse.enqueue(object : Callback<GetPlaceInfoResponse> {
             override fun onFailure(call: Call<GetPlaceInfoResponse>?, t: Throwable?) {
-                Log.d("asd",t.toString())
             }
 
             override fun onResponse(call: Call<GetPlaceInfoResponse>?, response: Response<GetPlaceInfoResponse>?) {
                 if (response!!.isSuccessful) {
+                    when {
+                        response.body().data.place_category == "역사 문화" -> detail_tag_tv.setBackgroundResource(R.drawable.orange_round_square)
+                        response.body().data.place_category == "도시 건축" -> detail_tag_tv.setBackgroundResource(R.drawable.green_round_square)
+                        response.body().data.place_category == "과학 경제" -> detail_tag_tv.setBackgroundResource(R.drawable.blue_round5_square)
+                    }
                     detail_name_tv.text = response.body().data.place_name
                     detail_title_tv.text = response.body().data.place_name
                     detail_address_tv.text = response.body().data.place_address
@@ -126,7 +130,7 @@ class DetailActivity : AppCompatActivity() {
                     }else{
                         if(response.body().data.myComment==null) {
                             detail_rate_tv.text = Info.name + "님 평가해주세요."
-                            if (response.body().data.status == "스탬프를 먼저 찍어주세요.") {
+                            if (response.body().data.status == "스탬프를 먼저 찍어주세요") {
                                 detail_rate_rating.visibility = View.GONE
                                 detail_stamp_btn.visibility = View.VISIBLE
                             }
@@ -156,8 +160,10 @@ class DetailActivity : AppCompatActivity() {
                         }
                     }
                     // 리뷰 "최대" 3개 가져오기
-                    comments = response.body().data.comments
-                    detailAdapter = DetailAdapter(comments, requestManager)
+                    if(response.body().data.comments.size > 3) {
+                        commentArray = ArrayList(response.body().data.comments.subList(0, 3))
+                    }
+                    detailAdapter = DetailAdapter(commentArray, requestManager)
                     detail_reviews_recycler.layoutManager = LinearLayoutManager(this@DetailActivity)
                     detail_reviews_recycler.adapter = detailAdapter
                 }

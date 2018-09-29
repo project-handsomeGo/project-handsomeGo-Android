@@ -37,7 +37,7 @@
             android:text="카카오 계정으로 로그인"
             android:textSize="14sp"
             android:textColor="#432a14"
-            android:textStyle="bold" />
+            android:fontFamily="@font/nanumsquareround_b"/>
 
     </LinearLayout>
 
@@ -56,7 +56,7 @@
             android:textSize="14sp"
             android:textColor="#74b9ff"
             android:text="게스트로 들어가기"
-            android:textStyle="bold"
+            android:fontFamily="@font/nanumsquareround_b"
             />
     </LinearLayout>
 </LinearLayout>
