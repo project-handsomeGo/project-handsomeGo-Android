@@ -1,9 +1,9 @@
 package com.hyeong.handsomego.splash
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.ImageView
 import com.bumptech.glide.Glide
@@ -26,6 +26,6 @@ class SplashActivity : AppCompatActivity() {
         handler.postDelayed({
             startActivity(Intent(applicationContext,LoginActivity::class.java))
             finish()
-        }, 2000)
+        }, 3000)
     }
 }
