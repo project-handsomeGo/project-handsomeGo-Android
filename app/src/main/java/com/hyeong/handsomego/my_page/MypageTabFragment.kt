@@ -9,11 +9,13 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.hyeong.handsomego.*
 import com.hyeong.handsomego.applicationController.ApplicationController
 import com.hyeong.handsomego.get.GetMypageResponse
 import com.hyeong.handsomego.get.GetStampInfoResponse
+import com.hyeong.handsomego.login.LoginActivity
 import kotlinx.android.synthetic.main.fragment_mypagetab.*
 import kotlinx.android.synthetic.main.fragment_mypagetab.view.*
 import retrofit2.Call
@@ -42,6 +44,11 @@ class MypageTabFragment : Fragment(), View.OnClickListener {
                 stamp_nomore_btn.visibility = View.GONE
                 stamp_more_btn.visibility = View.VISIBLE
             }
+            logout_btn -> {
+                Token.token = ""
+                Toast.makeText(context, "로그아웃 되었습니다.", Toast.LENGTH_SHORT).show()
+                startActivity(Intent(context, LoginActivity::class.java))
+            }
         }
     }
 
@@ -56,6 +63,8 @@ class MypageTabFragment : Fragment(), View.OnClickListener {
         mypage_edit_iv.setOnClickListener(this)
         stamp_more_btn.setOnClickListener(this)
         stamp_nomore_btn.setOnClickListener(this)
+        logout_btn.setOnClickListener(this)
+
         val requestManager = Glide.with(context)
 
         val networkService = ApplicationController.instance.networkService

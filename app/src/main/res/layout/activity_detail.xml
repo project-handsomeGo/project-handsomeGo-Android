@@ -131,14 +131,19 @@
                         android:textSize="14sp"
                         android:textColor="#000000"
                         tools:text="최다예님 평가해주세요."/>
-                    <RatingBar
-                        android:id="@+id/detail_rate_rating"
+                    <LinearLayout
+                        android:id="@+id/detail_rate_linear"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/detail_rate_tv"
-                        android:layout_centerHorizontal="true"
-                        android:isIndicator="true"
-                        android:numStars="5"/>
+                        android:layout_centerHorizontal="true">
+                        <RatingBar
+                            android:id="@+id/detail_rate_rating"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:isIndicator="true"
+                            android:numStars="5"/>
+                    </LinearLayout>
                     <Button
                         android:id="@+id/detail_stamp_btn"
                         android:layout_width="183dp"
