@@ -8,27 +8,26 @@
     
     <TextView
         android:id="@+id/rank_color"
-        android:layout_width="11dp"
+        android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:background="#000"
         android:layout_margin="10dp"/>
     
     <TextView
         android:id="@+id/rank_idx"
-        android:layout_width="wrap_content"
+        android:layout_width="25dp"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:background="@drawable/ranking_1"/>
+        android:gravity="center" />
 
     <TextView
         android:id="@+id/rank_name"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="15dp"
         android:text="덕수궁 돌담길길"/>
 
     <ImageView
-        android:layout_width="150dp"
+        android:layout_width="120dp"
         android:layout_height="match_parent" />
 
     <ImageView

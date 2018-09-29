@@ -3,6 +3,7 @@ package com.hyeong.handsomego.home
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -41,24 +42,27 @@ class HomeTabRankFragment : Fragment(), View.OnClickListener{
 
         val getRankReview = networkService.getRankReview()
         getRankReview.enqueue(object : Callback<GetRankReviewResponse> {
-            override fun onFailure(call: Call<GetRankReviewResponse>?, t: Throwable?) {
-
-            }
-
             override fun onResponse(call: Call<GetRankReviewResponse>?, response: Response<GetRankReviewResponse>?) {
+                Log.v("bbb","bbbbbb")
                 if(response!!.isSuccessful) {
-                    rankItems = response.body().data
-                    rankAdapter = HomeTabRankAdapter(rankItems)
-                    rank_recycler.layoutManager = LinearLayoutManager(context)
-                    rank_recycler.adapter = rankAdapter
+                    if(response!!.body().message.equals("Successful Get Place Rank Data")) {
+                        if (response!!.body().data != null) {
+                            rankItems = response.body().data
+                            rankAdapter = HomeTabRankAdapter(rankItems)
+                            rank_recycler.layoutManager = LinearLayoutManager(context)
+                            rank_recycler.adapter = rankAdapter
+                        }
+                    }
                 }
+            }
+            override fun onFailure(call: Call<GetRankReviewResponse>?, t: Throwable?) {
+                Log.v("aaa",t.toString())
             }
 
         })
     }
 
-/*
-    fun GetRankReviewResponse() {
+   /* fun GetRankReviewResponse() {
         val getrankreview = networkService!!.getRankReview()
         getrankreview!!.enqueue(object : retrofit2.Callback<GetRankReviewResponse> {
 
@@ -72,11 +76,10 @@ class HomeTabRankFragment : Fragment(), View.OnClickListener{
                 }
             }
             override fun onFailure(call: Call<GetRankReviewResponse>?, t: Throwable?) {
-
+                Log.v("aaa","1111111111111")
 
             }
         })
 
-    }
-*/
+    }*/
 }

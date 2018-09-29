@@ -10,6 +10,6 @@ import kotlinx.android.synthetic.main.rank_item.view.*
  */
 class HomeTabRankViewHolder(itemView : View?) : RecyclerView.ViewHolder(itemView) {
     var placename : TextView = itemView!!.rank_name
-    var placecategory : TextView = itemView!!.rank_color
+    var place_category : TextView = itemView!!.rank_color
     var placerank : TextView = itemView!!.rank_idx
 }
