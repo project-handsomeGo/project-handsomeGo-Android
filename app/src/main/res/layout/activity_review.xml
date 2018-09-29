@@ -17,7 +17,7 @@
             android:textSize="18sp"
             android:textColor="#000000"
             android:layout_centerInParent="true"
-            android:textStyle="bold"
+            android:fontFamily="@font/nanumsquareround_b"
             android:text="리뷰하기" />
         <View
             android:layout_width="match_parent"
@@ -49,6 +49,7 @@
                     android:textAlignment="center"
                     android:textSize="14sp"
                     android:textColor="#303030"
+                    android:fontFamily="@font/nanumsquareround_r"
                     android:text="최다예님 평가해주세요."/>
                 <RatingBar
                     android:id="@+id/reviewing_rate_rating"
@@ -75,8 +76,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="13sp"
-                    android:textStyle="bold"
                     android:textColor="#444444"
+                    android:fontFamily="@font/nanumsquareround_b"
                     android:text="사진 업로드(최대 4개)"
                     android:layout_marginBottom="11dp" />
                 <LinearLayout
@@ -131,7 +132,7 @@
                     android:layout_height="wrap_content"
                     android:textSize="13sp"
                     android:textColor="#444444"
-                    android:textStyle="bold"
+                    android:fontFamily="@font/nanumsquareround_b"
                     android:layout_marginBottom="8dp"
                     android:text="간단 리뷰" />
                 <EditText
@@ -141,6 +142,7 @@
                     android:textSize="13sp"
                     android:gravity="top"
                     android:background="@null"
+                    android:fontFamily="@font/nanumsquareround_r"
                     android:hint="장소에 대한 느낀 점이나 추억을 적어주세요"
                     android:layout_below="@+id/reviewing_content_tv"/>
             </RelativeLayout>
@@ -154,5 +156,6 @@
         android:textSize="16sp"
         android:textColor="#ffffff"
         android:layout_alignParentBottom="true"
+        android:fontFamily="@font/nanumsquareround_r"
         android:text="등록하기"/>
 </RelativeLayout>

@@ -15,6 +15,7 @@ import com.hyeong.handsomego.applicationController.ApplicationController
 import com.hyeong.handsomego.applicationController.NetworkService
 import com.hyeong.handsomego.get.GetPlaceInfoResponse
 import com.hyeong.handsomego.post.PostStampPlaceResponse
+import kotlinx.android.synthetic.main.activity_detail.*
 import kotlinx.android.synthetic.main.activity_simple_info.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -39,6 +40,11 @@ class SimpleInfoActivity : AppCompatActivity() {
 
             override fun onResponse(call: Call<GetPlaceInfoResponse>?, response: Response<GetPlaceInfoResponse>?) {
                 if(response!!.isSuccessful){
+                    when {
+                        response.body().data.place_category == "역사 문화" -> simple_cate_iv.setBackgroundColor(Color.parseColor("#fb8b20"))
+                        response.body().data.place_category == "도시 건축" -> simple_cate_iv.setBackgroundColor(Color.parseColor("#549b0e"))
+                        response.body().data.place_category == "과학 경제" -> simple_cate_iv.setBackgroundColor(Color.parseColor("#5ba2f6"))
+                    }
                     simple_name_tv.text = response.body().data.place_name
                     simple_address_tv.text = response.body().data.place_address
                     simple_info_tv.text = response.body().data.place_content

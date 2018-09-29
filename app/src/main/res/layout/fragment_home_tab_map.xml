@@ -36,6 +36,7 @@
             android:layout_marginLeft="15dp"
             android:layout_marginTop="15dp"
             android:layout_toRightOf="@+id/map_img"
+            android:fontFamily="@font/nanumsquareround_b"
             tools:text="덕수궁 돌담길"
             android:textSize="16dp" />
 
@@ -46,17 +47,19 @@
             android:layout_below="@+id/map_space_name"
             android:layout_marginLeft="15dp"
             android:layout_toRightOf="@+id/map_img"
+            android:fontFamily="@font/nanumsquareround_r"
             tools:text="서울 중구 정동"
             android:textSize="11dp" />
 
         <TextView
             android:id="@+id/star_text"
-            android:layout_width="25dp"
+            android:layout_width="wrap_content"
             android:layout_height="27dp"
             android:layout_below="@+id/map_space_addr"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="2dp"
             android:layout_toRightOf="@+id/map_img"
+            android:fontFamily="@font/nanumsquareround_b"
             tools:text="4.1"
             android:textSize="18dp" />
 

@@ -20,11 +20,10 @@ interface NetworkService {
     @GET("places/{place_id}")
     fun getSpaceInfo(@Path("place_id") place_id : Int) : Call<GetSpaceResponse>
 
-    //순위조회
+    // 순위 조회
     @GET("ranks")
     fun getRankReview() : Call<GetRankReviewResponse>
 
-    // 댓글 상세 조회
     // 댓글 작성
     @POST("comments")
     fun postReview(@Header("Authorization") token : String, @Body reviewData : PostReviewResponseData) : Call<PostReviewResponse>
