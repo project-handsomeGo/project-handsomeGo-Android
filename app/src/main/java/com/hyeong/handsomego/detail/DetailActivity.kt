@@ -126,7 +126,7 @@ class DetailActivity : AppCompatActivity() {
                     }else{
                         if(response.body().data.myComment==null) {
                             detail_rate_tv.text = Info.name + "님 평가해주세요."
-                            if (response.body().data.status == "스탬프를 먼저 찍어주세요.") {
+                            if (response.body().data.status == "스탬프를 먼저 찍어주세요") {
                                 detail_rate_rating.visibility = View.GONE
                                 detail_stamp_btn.visibility = View.VISIBLE
                             }
@@ -156,7 +156,7 @@ class DetailActivity : AppCompatActivity() {
                         }
                     }
                     // 리뷰 "최대" 3개 가져오기
-                    comments = response.body().data.comments
+                    comments = ArrayList(response.body().data.comments.subList(0,3))
                     detailAdapter = DetailAdapter(comments, requestManager)
                     detail_reviews_recycler.layoutManager = LinearLayoutManager(this@DetailActivity)
                     detail_reviews_recycler.adapter = detailAdapter
