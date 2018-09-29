@@ -31,7 +31,6 @@ class HomeTabRankFragment : Fragment(), View.OnClickListener{
     var networkService : NetworkService = ApplicationController.instance.networkService
 
     override fun onClick(v: View?) {
-        Log.d("asd","asdasd")
         val idx : Int = rank_recycler.getChildAdapterPosition(v)
         Idx.place_id = rankItems[idx].place_id
         startActivity(Intent(context, DetailActivity::class.java))

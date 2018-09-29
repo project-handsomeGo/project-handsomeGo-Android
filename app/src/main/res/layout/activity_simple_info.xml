@@ -57,6 +57,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <ImageView
+                android:id="@+id/simple_cate_iv"
                 android:layout_width="11dp"
                 android:layout_height="53dp"
                 android:background="@drawable/orange_square"

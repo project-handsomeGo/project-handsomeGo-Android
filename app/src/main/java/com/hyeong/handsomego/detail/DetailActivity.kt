@@ -2,12 +2,12 @@ package com.hyeong.handsomego.detail
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.AppBarLayout
 import android.support.v7.app.ActionBar
 import android.support.v7.widget.LinearLayoutManager
-import android.util.Log
 import android.view.MotionEvent
 import android.view.View
 import android.widget.Toast
@@ -95,11 +95,15 @@ class DetailActivity : AppCompatActivity() {
         val getPlaceInfoResponse = networkService.getPlaceInfo(Idx.place_id)
         getPlaceInfoResponse.enqueue(object : Callback<GetPlaceInfoResponse> {
             override fun onFailure(call: Call<GetPlaceInfoResponse>?, t: Throwable?) {
-                Log.d("asd",t.toString())
             }
 
             override fun onResponse(call: Call<GetPlaceInfoResponse>?, response: Response<GetPlaceInfoResponse>?) {
                 if (response!!.isSuccessful) {
+                    when {
+                        response.body().data.place_category == "역사 문화" -> detail_tag_tv.setBackgroundResource(R.drawable.orange_round_square)
+                        response.body().data.place_category == "도시 건축" -> detail_tag_tv.setBackgroundResource(R.drawable.green_round_square)
+                        response.body().data.place_category == "과학 경제" -> detail_tag_tv.setBackgroundResource(R.drawable.blue_round5_square)
+                    }
                     detail_name_tv.text = response.body().data.place_name
                     detail_title_tv.text = response.body().data.place_name
                     detail_address_tv.text = response.body().data.place_address
