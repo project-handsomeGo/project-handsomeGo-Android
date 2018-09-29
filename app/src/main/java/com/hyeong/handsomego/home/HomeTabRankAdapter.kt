@@ -1,6 +1,5 @@
 package com.hyeong.handsomego.home
 
-import android.graphics.Color
 import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.LayoutInflater
@@ -25,19 +24,20 @@ class HomeTabRankAdapter(var rankItems : ArrayList<GetRankReviewResponseData>) :
     override fun getItemCount(): Int = rankItems.size
 
     override fun onBindViewHolder(holder: HomeTabRankViewHolder, position: Int) {
+        Log.d("123123",holder.place_category.text.toString())
 
         if(holder.place_category.text.toString() == "역사 문화"){
             Log.d("123123",holder.place_category.toString())
-            holder.place_category.setBackgroundColor(Color.parseColor("#fb8b20"))
+            holder.place_category.setBackgroundColor(0xfb8b20)
             //holder.place_category.setText("11")
            // holder.place_category.setBackgroundResource(R.drawable.ranking_1)
 
         } else if (holder.place_category.text.toString() == "도시 건축") {
-            //holder.place_category.setBackgroundColor(Color.parseColor("#5ba2f6"))
-            holder.place_category.setText("22")
+            holder.place_category.setBackgroundColor(0x5ba2f6)
+
 
         }  else if (holder.place_category.text.toString() == "과학 경제") {
-            holder.place_category.setBackgroundColor(Color.parseColor("#549b0e"))
+            holder.place_category.setBackgroundColor(0x549b0e)
         }
 
         //textviewbackground
