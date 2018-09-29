@@ -27,3 +27,7 @@ object Tmp {
     var img3 : String = ""
     var img4 : String = ""
 }
+
+object QrFlag{
+    var back = false
+}

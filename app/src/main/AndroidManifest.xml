@@ -27,12 +27,13 @@
         <activity android:name=".after_stamp.AfterStampActivity" />
         <activity android:name=".after_stamp.SimpleInfoActivity" />
         <activity android:name=".qr_code.CameraActivity" />
+        <activity android:name=".qr_code.CustomScannerActivity" />
         <activity
-            android:name=".qr.CaptureActivityAnyOrientation"
+            android:name=".qr_code.AnyOrientationCaptureActivity"
             android:screenOrientation="fullSensor"
             android:stateNotNeeded="true"
             android:theme="@style/zxing_CaptureTheme"
-            android:windowSoftInputMode="stateAlwaysHidden" />
+            android:windowSoftInputMode="stateAlwaysHidden"></activity>
         <activity android:name=".splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
