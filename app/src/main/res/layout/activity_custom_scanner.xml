@@ -26,7 +26,7 @@
         android:gravity="center_horizontal"
         android:maxLines="10"
         android:lineSpacingExtra="10dp"
-        android:textStyle="bold"
+        android:fontFamily="@font/nanumsquareround_b"
         android:text="잘생긴 서울의 20 장소를 찾아\nQR코드로 스탬프 투어를\n시작해보세요 :D" />
     
     <ImageView

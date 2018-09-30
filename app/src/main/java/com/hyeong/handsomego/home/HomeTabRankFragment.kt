@@ -1,5 +1,6 @@
 package com.hyeong.handsomego.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
@@ -28,7 +29,8 @@ class HomeTabRankFragment : Fragment(), View.OnClickListener{
 
     override fun onClick(v: View?) {
         val idx : Int = rank_recycler.getChildAdapterPosition(v)
-
+        Idx.place_id = rankItems[idx].place_id
+        startActivity(Intent(context, DetailActivity::class.java))
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -50,6 +52,7 @@ class HomeTabRankFragment : Fragment(), View.OnClickListener{
                         if (response!!.body().data != null) {
                             rankItems = response.body().data
                             rankAdapter = HomeTabRankAdapter(rankItems)
+                            rankAdapter.setOnItemClickListener(this@HomeTabRankFragment)
                             rank_recycler.layoutManager = LinearLayoutManager(context)
                             rank_recycler.adapter = rankAdapter
                         }

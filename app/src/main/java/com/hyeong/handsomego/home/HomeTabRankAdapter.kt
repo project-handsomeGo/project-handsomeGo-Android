@@ -27,38 +27,37 @@ class HomeTabRankAdapter(var rankItems : ArrayList<GetRankReviewResponseData>) :
 
     }
 
+
+
     override fun getItemCount(): Int = rankItems.size
 
     override fun onBindViewHolder(holder: HomeTabRankViewHolder, position: Int) {
-        Log.d("123123",holder.place_category.text.toString())
-        //역사문화 라는 텍스트가 안들어오는듯..
-        if(holder.place_category.text.toString() == "역사 문화"){
-            Log.d("123123",holder.place_category.toString())
-            holder.place_category.setBackgroundColor(0xfb8b20)
-            //holder.place_category.setText("11")
-           // holder.place_category.setBackgroundResource(R.drawable.ranking_1)
-
-        } else if (holder.place_category.text.toString() == "도시 건축") {
-            holder.place_category.setBackgroundColor(0x5ba2f6)
-
-
-        }  else if (holder.place_category.text.toString() == "과학 경제") {
-            holder.place_category.setBackgroundColor(0x549b0e)
+        when {
+            rankItems[position].place_category == "역사 문화" -> holder.place_category.setBackgroundColor(Color.parseColor("#fb8b20"))
+            rankItems[position].place_category == "도시 건축" -> holder.place_category.setBackgroundColor(Color.parseColor("#549b0e"))
+            rankItems[position].place_category == "과학 경제" -> holder.place_category.setBackgroundColor(Color.parseColor("#5ba2f6"))
         }
 
         //textviewbackground
-        //자꾸 랭킹 123 오ㅣ에 스크롤할때마다 바뀌어요ㅜㅠㅠㅠ
         holder.placename.text = rankItems[position].place_name
-        holder.placerank.text = (position+1).toString()
-       if (position.toString() == "0"){
-            holder.placerank.setBackgroundResource(R.drawable.ranking_1)
-            holder.placerank.setText("")
-        }else if (position.toString() == "1"){
-            holder.placerank.setBackgroundResource(R.drawable.ranking_2)
-           holder.placerank.setText("")
-       } else if (position.toString() == "2"){
-            holder.placerank.setBackgroundResource(R.drawable.ranking_3)
-           holder.placerank.setText("")
-       }
+
+        when (position) {
+            0 -> {
+                holder.placerank.setBackgroundResource(R.drawable.ranking_1)
+                holder.placerank.text = ""
+            }
+            1 -> {
+                holder.placerank.setBackgroundResource(R.drawable.ranking_2)
+                holder.placerank.text = ""
+            }
+            2 -> {
+                holder.placerank.setBackgroundResource(R.drawable.ranking_3)
+                holder.placerank.text = ""
+            }
+            else -> {
+                holder.placerank.setBackgroundColor(Color.parseColor("#00000000"))
+                holder.placerank.text = (position+1).toString()
+            }
+        }
     }
 }

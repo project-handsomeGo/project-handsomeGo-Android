@@ -24,6 +24,7 @@
                 android:textSize="13sp"
                 android:textColor="#303030"
                 android:layout_marginRight="7dp"
+                android:fontFamily="@font/nanumsquareround_r"
                 android:text="닉네임"/>
             <View
                 android:id="@+id/review_bar_view"
@@ -40,6 +41,7 @@
                 android:layout_marginLeft="7dp"
                 android:textSize="13sp"
                 android:textColor="#9b9b9b"
+                android:fontFamily="@font/nanumsquareround_r"
                 android:text="2018.07.12"/>
         </RelativeLayout>
         <RatingBar
@@ -51,8 +53,8 @@
             android:scaleY="0.5"
             android:transformPivotX="0dp"
             android:transformPivotY="0dp"
+            android:isIndicator="true"
             android:numStars="5"
-            android:rating="3"
             />
         <TextView
             android:id="@+id/review_content_tv"
@@ -62,6 +64,7 @@
             android:layout_marginTop="28dp"
             android:textSize="12sp"
             android:textColor="#444444"
+            android:fontFamily="@font/nanumsquareround_r"
             android:text="내용"/>
         <LinearLayout
             android:layout_width="match_parent"
@@ -74,24 +77,28 @@
                 android:layout_width="76dp"
                 android:layout_height="76dp"
                 android:layout_marginRight="4dp"
+                android:scaleType="centerCrop"
                 android:visibility="gone"/>
             <ImageView
                 android:id="@+id/review_img2_iv"
                 android:layout_width="76dp"
                 android:layout_height="match_parent"
                 android:layout_marginRight="4dp"
+                android:scaleType="centerCrop"
                 android:visibility="gone"/>
             <ImageView
                 android:id="@+id/review_img3_iv"
                 android:layout_width="76dp"
                 android:layout_height="match_parent"
                 android:layout_marginRight="4dp"
+                android:scaleType="centerCrop"
                 android:visibility="gone"/>
             <ImageView
                 android:id="@+id/review_img4_iv"
                 android:layout_width="76dp"
                 android:layout_height="match_parent"
                 android:layout_marginRight="4dp"
+                android:scaleType="centerCrop"
                 android:visibility="gone"/>
         </LinearLayout>
     </RelativeLayout>
