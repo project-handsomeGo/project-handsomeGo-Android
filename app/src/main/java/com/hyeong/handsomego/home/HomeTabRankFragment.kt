@@ -27,6 +27,7 @@ class HomeTabRankFragment : Fragment(), View.OnClickListener{
     var networkService : NetworkService = ApplicationController.instance.networkService
 
     override fun onClick(v: View?) {
+        val idx : Int = rank_recycler.getChildAdapterPosition(v)
 
     }
 
