@@ -2,7 +2,6 @@ package com.hyeong.handsomego.home
 
 import android.graphics.Color
 import android.support.v7.widget.RecyclerView
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,7 +16,7 @@ class HomeTabRankAdapter(var rankItems : ArrayList<GetRankReviewResponseData>) :
 
     private lateinit var onItemClick : View.OnClickListener
 
-    fun setOnItemClickListener(l : View.OnClickListener){
+    fun setOnItemClickListener(l : View.OnClickListener){ //3. 외부에서 넘어온 클릭리스너 설정
         onItemClick = l
     }
 
@@ -25,7 +24,10 @@ class HomeTabRankAdapter(var rankItems : ArrayList<GetRankReviewResponseData>) :
         val view : View = LayoutInflater.from(parent.context).inflate(R.layout.rank_item, parent, false)
         view.setOnClickListener(onItemClick)
         return HomeTabRankViewHolder(view)
+
     }
+
+
 
     override fun getItemCount(): Int = rankItems.size
 
@@ -36,6 +38,7 @@ class HomeTabRankAdapter(var rankItems : ArrayList<GetRankReviewResponseData>) :
             rankItems[position].place_category == "과학 경제" -> holder.place_category.setBackgroundColor(Color.parseColor("#5ba2f6"))
         }
 
+        //textviewbackground
         holder.placename.text = rankItems[position].place_name
 
         when (position) {
