@@ -27,4 +27,5 @@ Kakao Login Android API
 https://developers.kakao.com/docs/android
 
 ## Overall Apps View
-![wireframe](https://user-images.githubusercontent.com/18085486/46254107-0669d280-c4c5-11e8-8ad9-48a697d2d4ef.jpg)
+![workflow_handsomego](https://user-images.githubusercontent.com/33532817/46254625-f48c2d80-c4cc-11e8-9004-f9d4792bee81.jpg)
+
