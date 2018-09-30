@@ -8,9 +8,11 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.hyeong.handsomego.Idx
 import com.hyeong.handsomego.R
 import com.hyeong.handsomego.applicationController.ApplicationController
 import com.hyeong.handsomego.applicationController.NetworkService
+import com.hyeong.handsomego.detail.DetailActivity
 import com.hyeong.handsomego.get.GetRankReviewResponse
 import com.hyeong.handsomego.get.GetRankReviewResponseData
 import kotlinx.android.synthetic.main.fragment_home_tab_rank.*

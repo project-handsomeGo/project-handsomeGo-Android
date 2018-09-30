@@ -2,9 +2,8 @@ package com.hyeong.handsomego.review
 
 import android.app.Activity
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.RatingBar
 import android.widget.Toast
@@ -56,6 +55,8 @@ class ReviewActivity : AppCompatActivity(), RatingBar.OnRatingBarChangeListener 
             val postReviewResponse = networkService.postReview(Token.token, postReviewResponseData)
             postReviewResponse.enqueue(object : Callback<PostReviewResponse>{
                 override fun onFailure(call: Call<PostReviewResponse>?, t: Throwable?) {
+                    Toast.makeText(applicationContext, "실패", Toast.LENGTH_LONG).show()
+
                 }
 
                 override fun onResponse(call: Call<PostReviewResponse>?, response: Response<PostReviewResponse>?) {
