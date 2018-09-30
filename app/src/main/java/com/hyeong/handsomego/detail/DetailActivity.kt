@@ -162,7 +162,10 @@ class DetailActivity : AppCompatActivity() {
                     // 리뷰 "최대" 3개 가져오기
                     if(response.body().data.comments.size > 3) {
                         commentArray = ArrayList(response.body().data.comments.subList(0, 3))
+                    }else{
+                        commentArray = response.body().data.comments
                     }
+
                     detailAdapter = DetailAdapter(commentArray, requestManager)
                     detail_reviews_recycler.layoutManager = LinearLayoutManager(this@DetailActivity)
                     detail_reviews_recycler.adapter = detailAdapter
